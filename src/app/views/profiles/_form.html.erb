@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.number_field :gender %>
+    <%= form.select :gender, options_for_select([['male'], ['female'], ['other']]) %>
   </div>
 
   <div class="field">
