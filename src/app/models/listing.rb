@@ -3,4 +3,5 @@ class Listing < ApplicationRecord
   belongs_to :hobby
   has_many :profiles, through: :attendees
   has_many :profiles, through: :favorites
+  enum equipment: [:yes, :no]
 end

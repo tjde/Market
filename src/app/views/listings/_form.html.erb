@@ -18,8 +18,7 @@
 
   <div class="field">
     <%= form.label :hobby_id %>
-    <% hobbies_array = Hobby.all.map { |hobby| [hobby.name, hobby.id] } %>
-    <%= form.select :hobby_id, options_for_select(hobbies_array), required: true %>
+    <%= form.select :hobby_id, options_from_collection_for_select(Hobby.all, :id, :name), required: true %>
   </div>
 
   <div class="field">
@@ -43,8 +42,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :equipment %>
-    <%= form.number_field :equipment %>
+    <%= radio_button_tag(:equipment, "yes", required: :true)%>
+    <%= label_tag(:equipment_yes, "You will need your own equipment") %>
+    <%= radio_button_tag(:equipment, "no") %>
+    <%= label_tag(:age_no, "You won't need any equipment") %>
   </div>
 
   <div class="field">
