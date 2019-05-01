@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :hobby_id %>
-    <%= form.text_field :hobby_id %>
+    <% hobbies_array = Hobby.all.map { |hobby| [hobby.name, hobby.id] } %>
+    <%= form.select :hobby_id, options_for_select(hobbies_array), required: true %>
   </div>
 
   <div class="field">
@@ -38,7 +39,7 @@
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.select :city, options_for_select([['Sydney'], ['Melbourne'], ['Elsewhere']]), required: true %>
   </div>
 
   <div class="field">
