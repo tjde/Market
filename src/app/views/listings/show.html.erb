@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @listing.profile %>
+</p>
+
+<p>
+  <strong>Hobby:</strong>
+  <%= @listing.hobby %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @listing.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @listing.date %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @listing.equipment %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @listing.capacity %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
