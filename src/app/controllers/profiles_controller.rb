@@ -24,10 +24,11 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+    current_user.profile = Profile.new(profile_params)
+    @profile = current_user.profile
 
     respond_to do |format|
-      if @profile.save
+      if @profile.errors.any? == false
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
