@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :age_bracket %>
-    <%= form.text_field :age_bracket %>
+    <%= form.select :age_bracket, options_for_select([['18-25'], ['26-33'], ['34+']]) %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.select :location, options_for_select([['Sydney'], ['Melbourne'], ['Elsewhere']]) %>
   </div>
 
   <div class="field">
