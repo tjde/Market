@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings

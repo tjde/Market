@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 category = Category.create(name: "Sport")
-
-for i in (1..10)
-    category.hobbies.create.(name: Faker::Team.sport, :unique => true)
+i = 0
+while i < 11
+    Category.first.hobbies.create(name: Faker::Team.sport)
     puts "created #{i} hobbies"
+    i += 1
 end
