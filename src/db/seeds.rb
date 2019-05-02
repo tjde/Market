@@ -9,6 +9,6 @@
 category = Category.create(name: "Sport")
 
 for i in (1..10)
-    category.hobbies.create.(name: Faker::Team.sport, :unique => true)
+    category.hobbies.create(name: Faker::Team.sport, :unique => true)
     puts "created #{i} hobbies"
 end
