@@ -22,7 +22,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <span>What is the<%= form.label :location %></span>
     <%= form.text_field :location %>
   </div>
 
@@ -37,10 +37,8 @@
   </div>
 
   <div class="field">
-    <%= radio_button_tag(:equipment, "yes", required: :true)%>
-    <%= label_tag(:equipment_yes, "You will need your own equipment") %>
-    <%= radio_button_tag(:equipment, "no") %>
-    <%= label_tag(:age_no, "You won't need any equipment") %>
+    <%= form.label :equipment %>
+    <%= form.select :equipment, options_for_select([['yes'], ['no']]), required: true %>
   </div>
 
   <div class="field">

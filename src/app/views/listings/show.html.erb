@@ -31,7 +31,7 @@
 </p>
 
 <p>
-  <strong>Equipment:</strong>
+  <strong>Do I need specific equipment?</strong>
   <%= @listing.equipment %>
 </p>
 
@@ -40,7 +40,9 @@
   <%= @listing.capacity %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %> |
-<td><%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% if current_user.profile == @listing.profile %>
+  <%= link_to 'Edit', edit_listing_path(@listing) %> |
+  <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
