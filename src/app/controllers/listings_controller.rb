@@ -24,7 +24,9 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    @listing = Listing.new(listing_params)
+    # @profile_id = current_user.profile.id
+    # @profile_name = current_user.profile.first_name
+    @listing = current_user.profile.listings.create(listing_params)
 
     respond_to do |format|
       if @listing.save
