@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user! 
-  before_action :user_profile_redirect, :except => [:new, :create]
+  before_action :authenticate_user!
+  before_action :user_paid
+  before_action :profile_creation, :except => [:new, :create]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
