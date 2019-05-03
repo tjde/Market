@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   resources :listings
   resources :profiles
   get "/", to: "listings#index", as: "root"
+  post "/payments", to: "payments#stripe"
+  get "/payments/success", to: "payments#success"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
