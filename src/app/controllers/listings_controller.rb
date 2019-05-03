@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
-  before_action :user_profile_redirect
+  # before_action :user_profile_redirect
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
@@ -16,7 +16,9 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
+    byebug
     @listing = Listing.new
+    
   end
 
   # GET /listings/1/edit
