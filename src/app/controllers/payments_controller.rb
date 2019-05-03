@@ -2,9 +2,8 @@ class PaymentsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def new
-
         stripe_session = Stripe::Checkout::Session.create(
-            customer_email: current_user.email
+            customer_email: current_user.email,
             payment_method_types: ['card'],
             client_reference_id: current_user.id,
             line_items: [{
@@ -18,7 +17,6 @@ class PaymentsController < ApplicationController
             cancel_url: 'http://localhost:3000/cancel'
         )
         @stripe_session_id = stripe_session.id
-
     end
 
 
@@ -26,6 +24,8 @@ class PaymentsController < ApplicationController
     def stripe
         user_id =  params[:data][:object][:client_reference_id]
         user = User.find(user_id)
+        user.paid = true
+        user.save
         render json: ""
     end
 
