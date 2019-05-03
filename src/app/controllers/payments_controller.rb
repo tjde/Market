@@ -4,6 +4,7 @@ class PaymentsController < ApplicationController
     def new
 
         stripe_session = Stripe::Checkout::Session.create(
+            customer_email: current_user.email
             payment_method_types: ['card'],
             client_reference_id: current_user.id,
             line_items: [{
@@ -24,8 +25,7 @@ class PaymentsController < ApplicationController
 
     def stripe
         user_id =  params[:data][:object][:client_reference_id]
-        payment_id = params[:data][:object][:payment_intent]
-        payment = Stripe::PaymentIntent.retrieve(payment_id)
+        user = User.find(user_id)
         render json: ""
     end
 
