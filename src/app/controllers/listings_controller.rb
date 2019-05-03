@@ -16,7 +16,6 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    byebug
     @listing = Listing.new
     
   end
