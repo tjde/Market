@@ -2,13 +2,6 @@
 
 <h1>Listings</h1>
 
-<h2>Search by Hobby</h2>
-  <%= form_tag(listings_path, method: :get) do %>
-    <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
-    <%= text_field_tag(:city, params[:city], placeholder: 'City e.g. Sydney') %>
-    <%= submit_tag ("Search") %>
-  <% end %>
-
 <table>
   <thead>
     <tr>

@@ -1,9 +1,14 @@
-<% if user_signed_in? and current_user.profile.blank? %>
-    <%= link_to 'Profile', new_profile_path(current_user.profile) %>
-<% elsif user_signed_in? %>
-    <%= link_to 'Profile', profile_path(current_user.profile) %>
-<% else %>
-    <%= link_to 'Profile', listings_path %>
+<%= form_tag(listings_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+    <%= text_field_tag(:city, params[:city], placeholder: 'City e.g. Sydney') %>
+    <%= submit_tag ("Search") %>
+    <% if user_signed_in? and current_user.profile.blank? %>
+        <%= link_to 'Profile', new_profile_path(current_user.profile) %>
+    <% elsif user_signed_in? %>
+        <%= link_to 'Profile', profile_path(current_user.profile) %>
+    <% else %>
+        <%= link_to 'Profile', listings_path %>
+    <% end %>
+    <%= link_to 'New Listing', new_listing_path %>
+    <%= link_to 'My Listings', listings_path %>
 <% end %>
-<%= link_to 'New Listing', new_listing_path %>
-<%= link_to 'My Listings', listings_path %>
