@@ -2,6 +2,13 @@
 
 <h1>Listings</h1>
 
+<h2>Search by Hobby</h2>
+  <%= form_tag(listings_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+    <%= text_field_tag(:city, params[:city], placeholder: 'City e.g. Sydney') %>
+    <%= submit_tag ("Search") %>
+  <% end %>
+
 <table>
   <thead>
     <tr>
@@ -25,7 +32,7 @@
         <td><%= listing.description %></td>
         <td><%= listing.location %></td>
         <td><%= listing.date %></td>
-        <td><%= listing.city %></td>
+        <td><%= listing.city.name %></td>
         <td><%= listing.equipment %></td>
         <td><%= listing.capacity %></td>
         <td><%= link_to 'Show', listing %></td>
