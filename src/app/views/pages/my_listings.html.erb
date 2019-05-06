@@ -1,45 +1,6 @@
 <h1>My Listings</h1>
 
-<h1>Listings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Profile</th>
-      <th>Hobby</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Date</th>
-      <th>City</th>
-      <th>Equipment</th>
-      <th>Capacity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @created.each do |listing| %>
-      <tr>
-        <td><%= listing.profile.first_name %></td>
-        <td><%= listing.hobby.name %></td>
-        <td><%= listing.description %></td>
-        <td><%= listing.location %></td>
-        <td><%= listing.date %></td>
-        <td><%= listing.city.name %></td>
-        <td><%= listing.equipment %></td>
-        <td><%= listing.capacity %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <% if listing.profile.user == current_user %>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %><td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'New Listing', new_listing_path %>
-<br>
-
+<h2>I'm attending: </h2>
 
 <table>
   <thead>
@@ -76,8 +37,9 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
+
+<h2>My favorites: </h2>
 
 <table>
   <thead>
@@ -115,4 +77,44 @@
   </tbody>
 </table>
 
+<br>
+
+<h2>Created by me:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Profile</th>
+      <th>Hobby</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>Equipment</th>
+      <th>Capacity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @created.each do |listing| %>
+      <tr>
+        <td><%= listing.profile.first_name %></td>
+        <td><%= listing.hobby.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.location %></td>
+        <td><%= listing.date %></td>
+        <td><%= listing.city.name %></td>
+        <td><%= listing.equipment %></td>
+        <td><%= listing.capacity %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <% if listing.profile.user == current_user %>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %><td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Listing', new_listing_path %>
 <br>
