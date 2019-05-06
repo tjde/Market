@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
     # A custom method to ensure the user follows the correct sign up path
     def sign_up_path
         path = "#{params[:controller]}/#{params[:action]}"
-        if user_signed_in?
-            if !current_user.paid?
+        if user_signed_in? and path != "devise/sessions/destroy"
+            if !current_user.paid? 
+                p params
                 redirect_to new_payment_path unless path == "payments/new"
             elsif current_user.profile.blank? and path != "profiles/create"
                 redirect_to new_profile_path unless path == "profiles/new"
