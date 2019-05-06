@@ -1,6 +1,7 @@
 <%= form_tag(listings_path, method: :get) do %>
     <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
-    <%= text_field_tag(:city, params[:city], placeholder: 'City e.g. Sydney') %>
+    <%# <%= text_field_tag(:city, params[:city], placeholder: 'City e.g. Sydney') %> 
+    <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
     <%= submit_tag ("Search") %>
     <% if user_signed_in? and current_user.profile.blank? %>
         <%= link_to 'Profile', new_profile_path(current_user.profile) %>
