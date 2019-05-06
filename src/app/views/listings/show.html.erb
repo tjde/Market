@@ -43,10 +43,10 @@
 <%= link_to 'Back', listings_path %> |
 <% if current_user.profile == @listing.profile %>
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
-  <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> 
 <% end %>
-<%= link_to 'Favorite', favorite_path, method: :post %> | 
-<%= link_to 'Attend', attend_path, method: :post%>
+<%= link_to 'Favorite', favorite_path, method: :post unless current_user.profile == @listing.profile %> | 
+<%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile %>
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
