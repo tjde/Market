@@ -13,3 +13,11 @@ while i < 11
     puts "created #{i} hobbies"
     i += 1
 end
+
+city = City.create([{ :name => 'Sydney' }, { :name => 'Melbourne' }, { :name => 'Brisbane' }, { :name => 'Perth' }, { :name => 'Tasmania' }])
+i = 0
+while i < city.length
+    City.create
+    puts "created #{i} cities"
+    i += 1
+end
