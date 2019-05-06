@@ -1,13 +1,11 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
-  before_action :profile_creation
-  before_action :user_paid
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.search(params[:search], params[:city])
   end
 
   # GET /listings/1
@@ -18,7 +16,6 @@ class ListingsController < ApplicationController
   # GET /listings/new
   def new
     @listing = Listing.new
-    
   end
 
   # GET /listings/1/edit
@@ -75,6 +72,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:profile_id, :hobby_id, :description, :location, :date, :city, :equipment, :capacity)
+      params.require(:listing).permit(:profile_id, :hobby_id, :description, :location, :date, :city_id, :equipment, :capacity)
     end
 end

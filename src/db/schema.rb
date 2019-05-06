@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_050831) do
+ActiveRecord::Schema.define(version: 2019_05_05_024925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 2019_05_03_050831) do
   end
 
   create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,11 +98,12 @@ ActiveRecord::Schema.define(version: 2019_05_03_050831) do
     t.text "description"
     t.string "location"
     t.date "date"
-    t.string "city"
     t.integer "equipment"
     t.integer "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_listings_on_city_id"
     t.index ["hobby_id"], name: "index_listings_on_hobby_id"
     t.index ["profile_id"], name: "index_listings_on_profile_id"
   end
@@ -137,6 +144,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_050831) do
   add_foreign_key "hobbies", "categories"
   add_foreign_key "interests", "hobbies"
   add_foreign_key "interests", "profiles"
+  add_foreign_key "listings", "cities"
   add_foreign_key "listings", "hobbies"
   add_foreign_key "listings", "profiles"
   add_foreign_key "profiles", "users"
