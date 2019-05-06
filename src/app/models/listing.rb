@@ -5,6 +5,8 @@ class Listing < ApplicationRecord
   enum equipment: [:yes, :no]
   has_many :attendees
   has_many :listing_attendees, source: :profile, through: :attendees
+  has_many :favorites
+  has_many :favorited, source: :profile, through: :favorites
 
   def self.search(search, city)
     if search and city

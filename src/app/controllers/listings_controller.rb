@@ -1,6 +1,28 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :favorite, :attend]
+
+  def favorite
+    favorite = @listing.favorites.new(profile_id: current_user.profile.id)
+    if favorite.save
+      flash.notice = "You have favorited this listing"
+      redirect_to listing_path
+    else
+      flash.notice = "You already favorited this."
+      redirect_to listing_path
+    end
+  end
+
+  def attend
+    listing = @listing.attendees.new(profile_id: current_user.profile.id)
+    if listing.save
+      flash.notice = "You are now attending this listing"
+      redirect_to listing_path
+    else
+      flash.notice = "You are already attending this."
+      redirect_to listing_path
+    end
+  end
 
   # GET /listings
   # GET /listings.json
