@@ -45,4 +45,8 @@
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
   <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-
+<%= link_to 'Favorite', favorite_path, method: :post %> | 
+<%= link_to 'Attend', attend_path, method: :post%>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
