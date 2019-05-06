@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_tag(listings_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+  <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
 <h1>Listings</h1>
 
 <table>
@@ -29,9 +35,6 @@
         <td><%= listing.equipment %></td>
         <td><%= listing.capacity %></td>
         <td><%= link_to 'Show', listing %></td>
-        <% if listing.profile.user == current_user %>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <% end %>
       </tr>
     <% end %>
   </tbody>

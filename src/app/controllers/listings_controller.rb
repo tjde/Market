@@ -1,7 +1,5 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
-  before_action :profile_creation
-  before_action :user_paid
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings

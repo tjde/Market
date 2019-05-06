@@ -19,12 +19,6 @@ class Listing < ApplicationRecord
       else
         Listing.all
       end
-    # elsif search
-    #   hobby = Hobby.find_by(name: search)
-    #   hobby ? self.where(hobby_id: hobby) : Listing.all
-    # elsif city
-    #   city = City.find_by(name: city)
-    #   city ? self.where(city_id: city) : Listing.all
     else
       Listing.all
     end

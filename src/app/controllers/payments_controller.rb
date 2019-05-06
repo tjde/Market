@@ -19,8 +19,6 @@ class PaymentsController < ApplicationController
         @stripe_session_id = stripe_session.id
     end
 
-
-
     def stripe
         user_id =  params[:data][:object][:client_reference_id]
         user = User.find(user_id)

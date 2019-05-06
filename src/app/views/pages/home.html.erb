@@ -1,0 +1,7 @@
+<h1>Home</h1>
+
+<%= form_tag(listings_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+  <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
+  <%= submit_tag ("Search") %>
+<% end %>
