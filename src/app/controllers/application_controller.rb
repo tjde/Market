@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
             new_payment_path
         end
     end
+    def authenticate_user!
+        unless current_user
+          flash[:notice] = "Sorry! You need to sign in or sign up before using that part of our site."
+          redirect_to new_user_session_path
+        end
+    end
 
     # A custom method to ensure the user follows the correct sign up path
     def sign_up_path
