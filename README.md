@@ -6,12 +6,38 @@
 
 #### A. Problem definition / purpose
 
+The purpose of the app is to provide a means for users to find other people to engage in hobbies with together. Users can create listings centred on specific hobbies which include a brief description, date, time, location and number of people invited to join. Other users of the site can then search listings put up by others based on a specific hobby and Australian major city location
+
 #### B. Functionality / features
+
+- The features of the app include:
+
+- A search bar that allows users to search by hobby or by city or both
+
+- User authentication
+
+- A navbar with authentication protocols that only allows signed in users who have paid and created profiles to fully access listing details and join the listings's activities
+
+- Stripe checkout payment page to protect and authenticate users' credit card information
+
+- Users  are able to create listings that comes up as summarised cards in searches
+
+- Users able to upload profile pictures to an AWS Server (S3)
+
 
 #### C. Screenshots
 
 #### D. Tech stack
-(e.g. html, css, deployment platform, etc)
+
+- Html 5 and CSS3
+- Javascript
+- Boostrap Framework
+- Devise 
+- Stripe 
+- AWS S3 Server
+- Ruby on Rails
+- Javascript
+- Heroku
 
 #### E.Instructions on how to setup, configure and use your App
 ### IV. Design documentation
