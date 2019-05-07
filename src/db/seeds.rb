@@ -17,4 +17,4 @@ end
 
 cities_arr = ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Hobart', 'Adelaide']
 
-cities_arr.each {|city| City.create.sort(name: city)}
+cities_arr.each {|city| City.create(name: city)}

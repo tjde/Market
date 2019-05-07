@@ -30,8 +30,8 @@
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @profile.location %>
+  <strong>City:</strong>
+  <%= City.find(@profile.city_id).name %>
 </p>
 
 <p>

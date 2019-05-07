@@ -37,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.select :location, options_for_select([['Sydney'], ['Melbourne'], ['Elsewhere']]), required: true %>
+    <%= form.label :city_id %>
+    <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true %>
   </div>
 
   <div class="field">
