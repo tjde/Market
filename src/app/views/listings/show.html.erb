@@ -7,6 +7,11 @@
 </p>
 
 <p>
+  <strong>Picture:</strong>
+  <%= image_tag @listing.profile.picture if @listing.profile.picture.attached? %>
+</p>
+
+<p>
   <strong>Hobby:</strong>
   <%= @listing.hobby.name %>
 </p>
@@ -46,8 +51,16 @@
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
   <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> 
 <% end %>
-<%= link_to 'Favorite', favorite_path, method: :post unless current_user.profile == @listing.profile %> | 
-<%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile %>
+<% if @listing.favorited.include? current_user.profile %>
+  <%= link_to 'Unfavorite', unfavorite_path, method: :delete unless current_user.profile == @listing.profile %> |
+<% else%>
+  <%= link_to 'Favorite', favorite_path, method: :post unless current_user.profile == @listing.profile %> | 
+<% end %>
+<% if @listing.listing_attendees.include? current_user.profile %>
+  <%= link_to 'Cancel Attendance', unattend_path, method: :delete unless current_user.profile == @listing.profile %>
+<% else%>
+  <%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile %>
+<% end %>
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
