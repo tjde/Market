@@ -9,14 +9,6 @@ class PagesController < ApplicationController
         @favorites = current_user.profile.favorite_listings
     end
 
-    def unfavorite
-        @favorites
-    end
-
-    def unattend
-        @attending
-    end
-
 end
 
 

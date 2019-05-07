@@ -1,7 +1,6 @@
-<p>Thanks for your payment! You will also need to create your Profile before proceeding to other parts of the site</p>
+<p><%= flash[:notice] %></p>
+<p>We need a little bit more information to help you join the fun.</p>
 
 <h1>New Profile</h1>
 
 <%= render 'form', profile: @profile %>
-
-<%= link_to 'Back', profiles_path %>
