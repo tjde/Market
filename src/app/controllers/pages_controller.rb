@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+    before_action :authenticate_user!, except: :home
     def home
     end
 
@@ -7,6 +7,14 @@ class PagesController < ApplicationController
         @created = current_user.profile.listings
         @attending = current_user.profile.attended_listings
         @favorites = current_user.profile.favorite_listings
+    end
+
+    def unfavorite
+        @favorites
+    end
+
+    def unattend
+        @attending
     end
 
 end
