@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/payments/success", to: "payments#success"
   post "/listing/:id/favorite", to: "listings#favorite", as: "favorite"
   post "/listing/:id/attend", to: "listings#attend", as: "attend"
+  delete "listing/:id/unfavorite", to: "listings#unfavorite", as: "unfavorite"
+  delete "listing/:id/unattend", to: "listings#unattend", as: "unattend"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

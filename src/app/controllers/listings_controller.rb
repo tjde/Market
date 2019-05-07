@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
-  before_action :set_listing, only: [:show, :edit, :update, :destroy, :favorite, :attend]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :favorite, :attend, :unfavorite, :unattend]
 
   def favorite
     favorite = @listing.favorites.new(profile_id: current_user.profile.id)
@@ -12,6 +12,17 @@ class ListingsController < ApplicationController
       redirect_to listing_path
     end
   end
+  
+  def unfavorite
+    favorite = @listing.favorites.find_by(profile_id: current_user.profile.id)
+    if favorite.destroy
+      flash.notice = "You have unfavorited this listing"
+      redirect_to listing_path
+    else
+      flash.notice = "Please try again."
+      redirect_to listing_path
+    end
+  end
 
   def attend
     listing = @listing.attendees.new(profile_id: current_user.profile.id)
@@ -20,6 +31,17 @@ class ListingsController < ApplicationController
       redirect_to listing_path
     else
       flash.notice = "You are already attending this."
+      redirect_to listing_path
+    end
+  end
+
+  def unattend
+    attendee = @listing.attendees.find_by(profile_id: current_user.profile.id)
+    if attendee.destroy
+      flash.notice = "You are no longer marked as attending this listing"
+      redirect_to listing_path
+    else
+      flash.notice = "Please try again."
       redirect_to listing_path
     end
   end
