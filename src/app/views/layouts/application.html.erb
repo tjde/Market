@@ -12,9 +12,7 @@
 
   <body>
     <%= render 'shared/fixed_nav' %>
+    <%= link_to "Logout", destroy_user_session_path, method: "DELETE" if user_signed_in? %>
     <%= yield %>
-    <div>
-      <%= link_to "logout", destroy_user_session_path, method: "DELETE" if user_signed_in? %>
-    </div>
   </body>
 </html>

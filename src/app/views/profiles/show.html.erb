@@ -35,6 +35,20 @@
 </p>
 
 <p>
+  <strong>Favorite hobby: </strong>
+  <% @profile.hobbies.each do |hobby| %>
+    <%= hobby.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Interested in: </strong>
+  <% @profile.hobby_interests.each do |interest| %>
+    <%= interest.name %>
+  <% end %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @profile.description %>
 </p>
