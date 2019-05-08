@@ -27,22 +27,3 @@ while i < 6
     i += 1
 end
 
-=======
-cities_arr = ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Hobart', 'Adelaide']
-cities_arr.each {|city| City.create(name: city)}
-
-category = Category.create(name: "Sport")
-i = 1
-while i < 7
-    user = User.new(
-        email: "ben+#{i}@test.com",
-        password: "12345678"
-    )
-    user.paid = true
-    user.save
-    Profile.create(user_id: user.id, first_name: "ben+#{i}", last_name: "crow", gender: "male", age_bracket: "18-26", description: "a test profile", city_id: i)
-    Category.first.hobbies.create(name: Faker::Team.sport)
-    puts "created #{i} hobbies"
-    i += 1
-end
->>>>>>> ben
