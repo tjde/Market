@@ -15,8 +15,10 @@
 </p>
 
 <p>
+<% if current_user.profile == @profile %>
   <strong>Email:</strong>
   <%= @profile.user.email %>
+<% end %>
 </p>
 
 <p>

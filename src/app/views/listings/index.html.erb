@@ -8,38 +8,29 @@
 
 <h1>Listings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Profile</th>
-      <th>Hobby</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Date</th>
-      <th>City</th>
-      <th>Equipment</th>
-      <th>Capacity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @listings.each do |listing| %>
+<% @listings.each do |listing| %>
+<%= link_to(listing) do %>
+<div class="card">
+  <div>
+    <%= image_tag listing.profile.picture if listing.profile.picture.attached? %>
+    <p>Hi I'm <%= listing.profile.first_name %>!</p>
+  </div>
+  <div>
+  <table >
       <tr>
-        <td><%= listing.profile.first_name %></td>
-        <td><%= listing.hobby.name %></td>
-        <td><%= listing.description %></td>
-        <td><%= listing.location %></td>
-        <td><%= listing.date.strftime("%B %Y") %></td>
-        <td><%= listing.city.name %></td>
-        <td><%= listing.equipment %></td>
-        <td><%= listing.capacity %></td>
-        <td><%= link_to 'Show', listing %></td>
+        <th>What: </th>
+        <td><%= listing.hobby.name.capitalize %>!</td>
       </tr>
-    <% end %>
-  </tbody>
+      <tr>
+        <th>Where: </th>
+        <td><%= listing.city.name %></td>
+      </tr>
+      <tr>
+        <th>When: </th>
+        <td><%= listing.date.strftime("%A, %b %d") %></td>
+      </tr>
 </table>
-
+</div>
+<% end %>
+<% end %>
 <br>
-
-<%= link_to 'New Listing', new_listing_path %>
