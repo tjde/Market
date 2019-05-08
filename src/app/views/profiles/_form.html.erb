@@ -11,52 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, required: true %>
-  </div>
+<div class="container">
+      <div class="field">
+          <%= form.label :first_name %>
+          <%= form.text_field :first_name, required: true %>
+      </div>
+      
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.select :gender, options_for_select([['male'], ['female'], ['other']]), required: true %>
-  </div>
+      <div class="field">
+        <%= form.label :gender %>
+        <%= form.select :gender, options_for_select([['male'], ['female'], ['other']]), required: true %>
+      </div>
 
-  <div class="field">
-    <%= form.label :age_bracket %>
-    <%= form.select :age_bracket, options_for_select([['18-25'], ['26-33'], ['34+']]), required: true %>
-  </div>
+      <div class="field">
+        <%= form.label :age_bracket %>
+        <%= form.select :age_bracket, options_for_select([['18-25'], ['26-33'], ['34+']]), required: true %>
+      </div>
 
-  <div class="field">
-    <%= form.label :city_id %>
-    <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true, prompt: "City..." %>
-  </div>
+      <div class="field">
+        <%= form.label :city_id %>
+        <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true, prompt: "City..." %>
+      </div>
 
-  <div class="field">
-    <%= form.label :hobbies %>
-    <%= select_tag :hobbies, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "Your favorite hobby:" %>
-  </div>
+      <div class="field">
+        <%= form.label :hobbies %>
+        <%= select_tag :hobbies, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "Your favorite hobby:" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :interests %>
-    <%= select_tag :interests, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "A hobby you want to try:" %>
-  </div>  
+      <div class="field">
+        <%= form.label :interests %>
+        <%= select_tag :interests, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "A hobby you want to try:" %>
+      </div>  
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, required: true %>
-  </div>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, required: true %>
+      </div>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
-  </div>
+      <div class="field">
+        <%= form.label :picture %>
+        <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="container">
+        <button type="button" class="btn btn-info"><%= form.submit %> </button>
+      </div>
+    
+    <% end %>
+
+</div>

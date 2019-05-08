@@ -1,7 +1,12 @@
-<br>
-<p><%= flash[:notice] %></p>
-<p>We need a little bit more information to help you join the fun.</p>
-
-<h1>New Profile</h1>
-
-<%= render 'form', profile: @profile %>
+<div class="container">
+    <div class="text-center">
+        <p><%= flash[:notice] %></p>
+        <p>We need a little bit more information to help you join the fun.</p>
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">New Profile</h1>
+                        <%= render 'form', profile: @profile %>
+                </div>
+            </div>
+    </div>
+</div>
