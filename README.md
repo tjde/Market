@@ -10,7 +10,7 @@ The purpose of the app is to provide a means for users to find other people to e
 
 #### B. Functionality / features
 
-- The features of the app include:
+The features of the app include:
 
 - A search bar that allows users to search by hobby or by city or both
 
@@ -44,7 +44,20 @@ The purpose of the app is to provide a means for users to find other people to e
 
 #### A. Design process
 
+The group started by coming up with different ideas and considering the potential scope of each idea before finally deciding on HobbyBuddies which we considered interesting and useful.
+
+We then started a trello board with ideas for features and stretch goals we would like to achieve. At this point, we also checked the requirements of the project, ensuring that this would be added to an overall to-do list so as not to be missed.
+We initially did potential wireframes in paper and when the layout was agreed on, this was laid out in balsamiq for a more polished interface. Moodboarding was done at Pexel where pictures were collected with a focus on colors that evoke a feeling of anticipation, joy and excitement to the user which is what we want them feel when they use the app and which ties to the app concept of being a platform where people may be able to find a new hobby they enjoy or friends they can do them with.
+
+At this point, we also came up with the user stories, ERD and User Flow Diagram, ensuring the foundation for the app was meticulously laid out before proceeding with the actual coding. 
+After this, based on the ERD and plans, the models and databases along with their associations were created. A decision was made to split the controllers based on their function and the agreed app structure. The project timeline and task allocation was reviewed each morning and at the end of the day to evaluate progress to completion. Once the background logic of the app was set and it was functional, testing and styling commenced to form the finalised web app which was deployed in Heroku. 
+
 #### B. User stories
+
+1. As Sylvia, I just moved to Sydney and want to go scuba diving with somebody so that I can meet someone new while having      fun.
+2. As John, I want a partner to regularly run with in the morning so that I can be accountable to someone and effectively build a healthy habit.
+3. As Daniel I want to try hiking so that I can shake up my usual routine and try something new with other people who know the ropes and can give me guidance.
+4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
 
 #### C. A workflow diagram of the user journey/s.
 
