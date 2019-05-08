@@ -22,18 +22,14 @@
   </div>
 
   <div class="field">
-    <span>What is the<%= form.label :location %></span>
+    <label for="listing_location">Where will it be held?</label>
     <%= form.text_field :location, placeholder: "e.g. bondi beach" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city_id %>
-    <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true %>
+    <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true, prompt: "City..." %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <input type="date" name="listing[date]" id="listing_date">
   </div>
 
   <div class="field">
