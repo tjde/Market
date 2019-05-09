@@ -5,7 +5,7 @@
    <!-- Links -->
     <ul class="navbar-nav">
        <li class="nav-item">
-         <% if user_signed_in? %>
+         <% if user_signed_in? and !current_user.profile.blank? %>
            <%= link_to 'Profile', profile_path(current_user.profile), class: "nav-link"  %>
          <% else %>
            <%= link_to 'Profile', my_listings_path, class: "nav-link" %>
