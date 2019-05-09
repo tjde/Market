@@ -141,6 +141,8 @@ Our app runs on the Ruby on Rails framework which acts as our server side develo
 ##### I. App Abstractions
 Explain the different high-level components (abstractions) in your App.
 
+The Model-View-Controller (MVC) pattern allows for a separation of concerns. The Model takes care of managing the data of the application and the logic pertaining to the retrieval of that data. The View holds the functions which the user can actually see and interact with. The controller acts as the intermediary between the Model and the View, in that it processes the user request and routes the data obtained from the Model and sends it to the Vew to be presented to the user.
+
 ##### J. Third Party Services
 Detail any third party services that your App will use.
 
@@ -182,6 +184,8 @@ An initial list of overall tasks based on discussed features and requirements we
 ##### R. Agile Method Implementation
 Discuss how Agile methodology is being implemented in your project.
 
+Feature development was split into sprints running for a number of days, allocated between the two team members. Each feature was also tagged on importance. Please see screenshot above under project timeline.
+
 ##### S. Source Control
 Provide an overview and description of your Source control process.
 
@@ -197,6 +201,8 @@ Discuss and analyse requirements related to information system security.
 
 ##### V. Data Protection
 Discuss methods you will use to protect information and data.
+
+Our app does not store any confidential user information like addresses, phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their Last name and Email. this information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe.
 
 #### W. Legal Obligations with User Data
 Research what your legal obligations are in relation to handling user data.
