@@ -64,6 +64,9 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    if current_user.profile != @listing.profile
+      redirect_to profile_path(current_user)
+    end
   end
 
   # POST /listings
