@@ -9,6 +9,7 @@
 <h1>Listings</h1>
 
 <% @listings.each do |listing| %>
+<% if listing.profile != current_user.profile %>
 <%= link_to(listing) do %>
 <div class="card">
   <div>
@@ -17,20 +18,20 @@
   </div>
   <div>
   <table >
-      <tr>
-        <th>What: </th>
-        <td><%= listing.hobby.name.capitalize %>!</td>
-      </tr>
-      <tr>
-        <th>Where: </th>
-        <td><%= listing.city.name %></td>
-      </tr>
-      <tr>
-        <th>When: </th>
-        <td><%= listing.date.strftime("%A, %b %d") %></td>
-      </tr>
+    <tr>
+      <th>What: </th>
+      <td><%= listing.hobby.name.capitalize %>!</td>
+    </tr>
+    <tr>
+      <th>Where: </th>
+      <td><%= listing.city.name %></td>
+    </tr>
+    <tr>
+      <th>When: </th>
+      <td><%= listing.date.strftime("%A, %b %d") %></td>
+    </tr>
 </table>
 </div>
 <% end %>
 <% end %>
-<br>
+<% end %>
