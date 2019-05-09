@@ -99,6 +99,7 @@ Explain the different high-level components (abstractions) in your App.
 ##### J. Third Party Services
 Detail any third party services that your App will use.
 
+
 ##### K. Marketplace Apps with similar data structure
 Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
@@ -120,11 +121,16 @@ Provide Wireframes for your App.
 ##### Q. Task Allocation and Tracking
 Describe the way tasks are allocated and tracked in your project.
 
+An initial list of overall tasks based on discussed features and requirements were compiled. From here, the team used Monday, an online project management software to evaluate pending and current tasks to distribute to team members and keep abreast of things.
+
 ##### R. Agile Method Implementation
 Discuss how Agile methodology is being implemented in your project.
 
 ##### S. Source Control
 Provide an overview and description of your Source control process.
+
+The team structured our git repository so that the Master branch is only ever updated with working code. Another remote branch called ‘Dev’ acted as the intermediary for potential merge conflicts that both team members pushed to after working on the code on local branches that branched out from the local dev branch. In this manner, we maintained the integrity of our source code.
+
 
 ##### T. Testing Process
 Provide an overview and description of your Testing process.
