@@ -1,51 +1,58 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @listing.profile.first_name %>
-</p>
+<%# Created By %>
+<div>
+  <div>
+    <%= image_tag @listing.profile.picture if @listing.profile.picture.attached? %>
+    <p>Hi I'm <%= @listing.profile.first_name %>!</p>
+  </div>
+<%# Activity Date %>
+  <div>
+    <span>Activity Date: </span>
+    <span><%= @listing.date.strftime("%A, %b %d") %></span>
+  </div> 
+<%# Activity Location %>
+  <div>
+    <span>Activity Location: </span>
+    <span><%= @listing.city.name %></span>
+  </div>
+</div>
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag @listing.profile.picture if @listing.profile.picture.attached? %>
-</p>
+<div>
+<%# Capacity %>
+  <div>
+    <span>People Attending: </span>
+    <% spaces_taken = @listing.listing_attendees.count%>
+    <% spaces_left = @listing.capacity - spaces_taken %>
+    <% case spaces_left %>
+    <% when  %>
+      <% remaining = "sorry, there are currently no spaces remaining"%>
+    <% when 1 %>
+      <% remaining = "there is 1 space remaining"%>
+    <% else %>
+      <% remaining = "there are #{spaces_left} spaces remaining" %>
+    <% end %>
+    <% if spaces_taken == 1 %>
+      <span><%= spaces_taken %> person is already attending | </span>
+      <span><%= remaining %></span>
+    <% elsif spaces_taken > 1 %>
+      <span><%= spaces_taken %> people are already attending | </span>
+      <span><%= remaining %></span>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Hobby:</strong>
-  <%= @listing.hobby.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @listing.location %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @listing.date.strftime("%A, %b %d") %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @listing.city.name %>
-</p>
-
-<p>
-  <strong>Do I need specific equipment?</strong>
-  <%= @listing.equipment %>
-</p>
-
-<p>
-  <strong>Capacity:</strong>
-  <%= @listing.capacity %>
-</p>
-
+<%# Equipment needed? %>
+  <div>
+    <span>Will I need special equipment?</span>
+    <%= @listing.equipment.capitalize %>
+  </div>
+<%# Description %>
+  <div>
+    <span>What will I be doing?</span>
+    <p><%= @listing.description %></p>
+  </div>
+</div>
 <%= link_to 'Back', listings_path %> |
 <% if current_user.profile == @listing.profile %>
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
@@ -59,7 +66,7 @@
 <% if @listing.listing_attendees.include? current_user.profile %>
   <%= link_to 'Cancel Attendance', unattend_path, method: :delete unless current_user.profile == @listing.profile %>
 <% else%>
-  <%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile %>
+  <%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile or spaces_left == 0 %>
 <% end %>
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
