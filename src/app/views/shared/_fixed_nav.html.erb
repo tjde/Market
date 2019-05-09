@@ -1,18 +1,34 @@
+<div class="container-fluid">
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+   <a class="navbar-brand" href="/">HobbyBuddies</a>
 
-<%# Home Page with main search bar %>
-<%= link_to 'Search', root_path %> |
+   <!-- Links -->
+    <ul class="navbar-nav">
+       <li class="nav-item">
+         <% if user_signed_in? %>
+           <%= link_to 'Profile', profile_path(current_user.profile), class: "nav-link"  %>
+         <% else %>
+           <%= link_to 'Profile', my_listings_path, class: "nav-link" %>
+         <% end %>
+       </li>
+       <li class="nav-item">
+         <%= link_to 'My Listings', my_listings_path, class: "nav-link" %>
+       </li>
+       <li class="nav-item">
+         <%= link_to 'New Listing', new_listing_path, class: "nav-link" %>
+       </li>
+       <li class="nav-item">
+         <%= link_to 'Search', root_path, class: "nav-link" %>
+       </li>
+    </ul>
 
-<%# Logic that determines where the profile icon links to depending on user sign in status%>
-<% if user_signed_in? and current_user.profile.blank? %>
-    <%= link_to 'Profile', new_profile_path %> |
-<% elsif user_signed_in? %>
-    <%= link_to 'Profile', profile_path(current_user.profile) %> |
-<% else %>
-    <%= link_to 'Profile', my_listings_path %> |
-<% end %>
-
-<%#  New Listing page%>
-<%= link_to 'New Listing', new_listing_path %> |
-
-<%# Curated page with User's created listings, attended listings and more%>
-<%= link_to 'My Listings', my_listings_path %> |
+    <span class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
+    <%  if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: "DELETE" %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %> | 
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    <% end %>
+   </span>
+ </nav>
+</div>
