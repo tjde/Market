@@ -1,7 +1,30 @@
-<h1>Hobby Buddies</h1>
+<header>
+  <div class="overlay"></div>
+  <%= video_tag "Rollercoaster.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video" %>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">HobbyBuddies</h1>
+        <p class="lead mb-0">Because Hobbies are better with buddies</p>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= form_tag(listings_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
-  <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
-  <%= submit_tag ("Search") %>
-<% end %>
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <%= form_tag(listings_path, method: :get) do %>
+        <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+        <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
+        <%= submit_tag ("Search") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
