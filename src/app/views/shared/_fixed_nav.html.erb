@@ -1,38 +1,40 @@
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">HobbyBuddies</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class='container-fluid'>
+        <a class="navbar-brand" href="/">HobbyBuddies</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <% if user_signed_in? and !current_user.profile.blank? %>
-            <%= link_to 'Profile', profile_path(current_user.profile), class: "nav-link"  %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <% if user_signed_in? and !current_user.profile.blank? %>
+                <%= link_to 'Profile', profile_path(current_user.profile), class: "nav-link"  %>
+                <% else %>
+                <%= link_to 'Profile', my_listings_path, class: "nav-link" %>
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'My Listings', my_listings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'New Listing', new_listing_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Search', root_path, class: "nav-link" %>
+            </li>
+        </ul>
+
+            <span class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
+            <% if user_signed_in? %>
+                <%= link_to "Logout", destroy_user_session_path, method: "DELETE" %>
             <% else %>
-            <%= link_to 'Profile', my_listings_path, class: "nav-link" %>
+                <%= link_to 'Login', new_user_session_path %> | 
+                <%= link_to 'Sign Up', new_user_registration_path %>
             <% end %>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'My Listings', my_listings_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'New Listing', new_listing_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'Search', root_path, class: "nav-link" %>
-        </li>
-    </ul>
-
-        <span class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
-        <% if user_signed_in? %>
-            <%= link_to "Logout", destroy_user_session_path, method: "DELETE" %>
-        <% else %>
-            <%= link_to 'Login', new_user_session_path %> | 
-            <%= link_to 'Sign Up', new_user_registration_path %>
-        <% end %>
-        </span>
+            </span>
+        </div>
     </div>
 </nav>
 
