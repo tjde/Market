@@ -113,6 +113,17 @@ Describe the network infrastructure the App may be based on.
 ##### E. Software Usage
 Identify and describe the software to be used in your App.
 
+The software we used were the following:
+
+- Trello – For ideation, overall task list and user stories
+- Monday – For actual development timeline overview and task allocation
+- Balsamiq Cloud – For Wireframing
+- Pexel – For moodboarding
+- ERD Software online – For creating our entity relationship diagram
+- Github – To hold our git repo
+- Slack – To communicate and share documentation
+
+
 ##### F. Database
 Identify the database to be used in your App and provide a justification for your choice.
 
@@ -128,10 +139,17 @@ Explain the different high-level components (abstractions) in your App.
 ##### J. Third Party Services
 Detail any third party services that your App will use.
 
+The app uses the following third party services:
+ - Amazon Web Services S3 - To serve as storage for image files uploaded by the users for their profiles
+ - Stripe - This is used to accept credit card payments from users in order to use the full functionality of the webapp
+ - Heroku - This serves as the deployment platform for our webapp so it can be used over the internet
+
 ##### K. Marketplace Apps with similar data structure
 Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
-##### L. Databse Relations
+The marketplace apps that have similar data structure to ours but in a much larger scale are Ebay and Gumtree where items are linked together in relationship associations and are accessed in this way. For instance, to list items on Ebay and Gumtree, you would need to pick an overall category, then subcategory before reaching the form that allows you to list the specific aspects of the item. Similary, our app uses forms like these for users to put up listings where other users can go and retrieve specific listings based on the hobby and city parameters.
+
+##### L. Database Relations
 Discuss the database relations to be implemented.
 
 ##### M. Active Record Associations of the Models
