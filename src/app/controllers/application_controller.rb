@@ -2,14 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :sign_up_path
     private
 
-    # Using devise's built in method to redirect the user to payment after login/signup
-    def after_sign_in_path_for(resource)
-        if current_user.paid?
-            profile_path(current_user.profile)
-        else
-            new_payment_path
-        end
-    end
+    # Altering Devise's method to ensure a flash notice tells the user why they were redirected
     def authenticate_user!
         unless current_user
           flash[:notice] = "Sorry! You need to sign in or sign up before using that part of our site."
