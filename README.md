@@ -127,11 +127,16 @@ The software we used were the following:
 ##### F. Database
 Identify the database to be used in your App and provide a justification for your choice.
 
+The database used in our app is Postgresql. Firstly, sql is the default database built into rails so no additional software needs to be installed. Second of all, a relational database like posgresql allows for for a way to structure our data to more easily obtain the data we require like user hobbies or cities as our app relies on retrieving data based on the relationships between information in the user profile and the listings they create. 
+
+
 ##### G. Production Database Setup
 Identify and describe the production database setup (i.e. postgres instance).
 
 ##### H. App Architecture
 Describe the architecture of your App.
+
+Our app runs on the Ruby on Rails framework which acts as our server side development platform. The database used is Postgresql which is a relationship database linking information from different tables based on relationship associations. It uses Amazon Web Services S3 as active storage for any user profile images uploaded. The Devise gem is used to authenticate users. Stripe payment checkout is used to allow the app to accept payments from users in a secure way. Heroku is the cloud platform used to deploy our app in the internet.
 
 ##### I. App Abstractions
 Explain the different high-level components (abstractions) in your App.
@@ -184,6 +189,8 @@ The team structured our git repository so that the Master branch is only ever up
 
 ##### T. Testing Process
 Provide an overview and description of your Testing process.
+
+The team consolidated a list of the main features of the app in a column on the spreadsheet. We then  compiled several test cases for each feature that we believe should work or not work in another column. We then ran each test case, listing down the results and comparing them to what was expected. Any bugs found, were fixed in the code. For a more information, please look at the docs folder for a copy of the test spreadsheet.
 
 ##### U. Information System Security Requirements
 Discuss and analyse requirements related to information system security.
