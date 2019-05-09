@@ -1,67 +1,67 @@
 <div class="container">
   <div class="text-center">
-      <div class="card">
-          <div class="card-body">
+    <div class="card">
+      <div class="card-body">
 
-            <p id="notice"><%= notice %></p>
+        <p id="notice"><%= notice %></p>
 
-            <div class="card mb-1">
-              <%= image_tag @profile.picture if @profile.picture.attached? %>
-            </div>
+        <div class="card mb-1">
+          <%= image_tag @profile.picture if @profile.picture.attached? %>
+        </div>
 
-            <p>
-              <strong>First name:</strong>
-              <%= @profile.first_name %>
-            </p>
+        <p>
+          <strong>First name:</strong>
+          <%= @profile.first_name %>
+        </p>
+        
+        <% if current_user.profile == @profile %>
+        <p>
+          <strong>Last name:</strong>
+          <%= @profile.last_name %>
+        </p>
 
-            <p>
-              <strong>Last name:</strong>
-              <%= @profile.last_name %>
-            </p>
+        <p>
+          <strong>Email:</strong>
+          <%= @profile.user.email %>
+        </p>
+        <% end %>
 
-            <p>
-            <% if current_user.profile == @profile %>
-              <strong>Email:</strong>
-              <%= @profile.user.email %>
-            <% end %>
-            </p>
+        <p>
+          <strong>Gender:</strong>
+          <%= @profile.gender %>
+        </p>
 
-            <p>
-              <strong>Gender:</strong>
-              <%= @profile.gender %>
-            </p>
+        <p>
+          <strong>Age bracket:</strong>
+          <%= @profile.age_bracket %>
+        </p>
 
-            <p>
-              <strong>Age bracket:</strong>
-              <%= @profile.age_bracket %>
-            </p>
+        <p>
+          <strong>City:</strong>
+          <%= City.find(@profile.city_id).name %>
+        </p>
 
-            <p>
-              <strong>City:</strong>
-              <%= City.find(@profile.city_id).name %>
-            </p>
+        <p>
+          <strong>Favorite hobby: </strong>
+          <% @profile.hobbies.each do |hobby| %>
+            <%= hobby.name %>
+          <% end %>
+        </p>
 
-            <p>
-              <strong>Favorite hobby: </strong>
-              <% @profile.hobbies.each do |hobby| %>
-                <%= hobby.name %>
-              <% end %>
-            </p>
+        <p>
+          <strong>Interested in: </strong>
+          <% @profile.hobby_interests.each do |interest| %>
+            <%= interest.name %>
+          <% end %>
+        </p>
 
-            <p>
-              <strong>Interested in: </strong>
-              <% @profile.hobby_interests.each do |interest| %>
-                <%= interest.name %>
-              <% end %>
-            </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @profile.description %>
+        </p>
 
-            <p>
-              <strong>Description:</strong>
-              <%= @profile.description %>
-            </p>
-
-           <%= link_to 'Edit', edit_profile_path(@profile) %> |
-          <%= link_to 'Back', profiles_path %>
+        <%= link_to 'Edit', edit_profile_path(@profile) %> |
+        <%= link_to 'Back', profiles_path %>
 
       </div>
     </div>
