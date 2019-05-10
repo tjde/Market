@@ -124,19 +124,19 @@ The challenge that we are addressing in this project is to build a fully functio
 
 ##### B. The Problem and why it is important
 
-Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
+<!-- Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving? -->
 
 With the increasing number of individuals choosing to travel and move to other places, it can be difficult to build new friendships in foreign places. Hobbybuddies aims to address the need for connection by give people more chances to form more intimate connections through enaging in shared interests with smaller groups of people.
 
 
 ##### C. Project Description
 
-Describe the project will you be conducting and how your App will address the needs. 
+<!-- Describe the project will you be conducting and how your App will address the needs.  -->
 
 Our app, HobbyBuddies, enables individuals to quickly find and join the activity listings posted by other people who are planning to engage in a specific activity of interest. Upon visiting the website, a user is able to search listings based on a specific hobby and city in Australia. This will only be a brief snippet of the listing, however. After the succesful completion of the sign in process where they will be prompted to pay a nominal one off fee and complete their profile, the user can then create their own listings that others can join or see the specific details of the listings of others and mark that they intend to join in. 
 
 ##### D. App Network Infrastructure
-Describe the network infrastructure the App may be based on.
+<!-- Describe the network infrastructure the App may be based on. -->
 
 Heroku is the central network piece for our deployed App. It relies on Github for accessing your source code. Essentially, the code is stored in a remote location, as part of Github's file structure, and associated with the application's local repository. Thus, as code is pushed to that remote, Heroku is able to access the updated code.
 
