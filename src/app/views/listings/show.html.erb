@@ -1,75 +1,61 @@
 
-<p id="notice"><%= notice %></p>
-
-<%# Created By %>
-<div>
-  <div>
-    <%= image_tag @listing.profile.picture if @listing.profile.picture.attached? %>
-    <p>Hi I'm <%= @listing.profile.first_name %>!</p>
-  </div>
-<%# Activity Date %>
-  <div>
-    <span>Activity Date: </span>
-    <span><%= @listing.date.strftime("%A, %b %d") %></span>
-  </div> 
-<%# Activity Location %>
-  <div>
-    <span>Activity Location: </span>
-    <span><%= @listing.city.name %></span>
+<div class="d-flex justify-content-center">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag @listing.profile.picture, class:"card-img mt-5 ml-2", alt:"profile picture" if @listing.profile.picture.attached? %>
+      <h4 class="text-center mt-4">Hi Im <%= @listing.profile.first_name %>!</h4>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body ml-3">
+        <h5 class="card-title" > <%= @listing.hobby.name.capitalize %></h5>
+        <p class="card-text">Activity Date: <%= @listing.date.strftime("%A, %b %d") %> </p>
+        <p class="card-text">Activity Location: <%= @listing.city.name %></p>
+        <p class="card-text">People Attending: 
+        <% spaces_taken = @listing.listing_attendees.count%>
+          <% spaces_left = @listing.capacity - spaces_taken %>
+          <% case spaces_left %>
+          <% when 0 %>
+            <% remaining = "sorry, there are currently no spaces remaining"%>
+          <% when 1 %>
+            <% remaining = "there is 1 space remaining"%>
+          <% else %>
+            <% remaining = "there are #{spaces_left} spaces remaining" %>
+          <% end %>
+          <% if spaces_taken == 0 %>
+            <span>No one has joined this listing yet. There are <%= @listing.capacity %> spaces</span>
+          <% elsif spaces_taken == 1 %>
+            <span><%= spaces_taken %> person is already attending | </span>
+            <span><%= remaining %></span>
+          <% elsif spaces_taken > 1 %>
+            <span><%= spaces_taken %> people are already attending | </span>
+            <span><%= remaining %></span>
+            <% end %>
+        </p>
+        <p class="card-text">Will I need special equipment? <%= @listing.equipment.capitalize %> </p>
+        <p class="card-text">What will I be doing? <%= @listing.description %> </p>
+        <p class="card-text"> <%= link_to 'Back', listings_path, class:"btn btn-info" %> 
+            <% if current_user.profile == @listing.profile %>
+              <%= link_to 'Edit', edit_listing_path(@listing), class:"btn btn-info" %> 
+              <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info" %> 
+            <% end %>
+            <% if @listing.favorited.include? current_user.profile %>
+              <%= link_to 'Unfavorite', unfavorite_path, method: :delete unless current_user.profile == @listing.profile %> 
+            <% else%>
+              <%= link_to 'Favorite', favorite_path, method: :post unless current_user.profile == @listing.profile %> 
+            <% end %>
+            <% if @listing.listing_attendees.include? current_user.profile %>
+              <%= link_to 'Cancel Attendance', unattend_path, method: :delete unless current_user.profile == @listing.profile %>
+            <% else%>
+              <%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile or spaces_left == 0 %>
+            <% end %>
+            <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+            <% end %>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
-
-<div>
-<%# Capacity %>
-  <div>
-    <span>People Attending: </span>
-    <% spaces_taken = @listing.listing_attendees.count%>
-    <% spaces_left = @listing.capacity - spaces_taken %>
-    <% case spaces_left %>
-    <% when  %>
-      <% remaining = "sorry, there are currently no spaces remaining"%>
-    <% when 1 %>
-      <% remaining = "there is 1 space remaining"%>
-    <% else %>
-      <% remaining = "there are #{spaces_left} spaces remaining" %>
-    <% end %>
-    <% if spaces_taken == 1 %>
-      <span><%= spaces_taken %> person is already attending | </span>
-      <span><%= remaining %></span>
-    <% elsif spaces_taken > 1 %>
-      <span><%= spaces_taken %> people are already attending | </span>
-      <span><%= remaining %></span>
-    <% end %>
-  </div>
-
-<%# Equipment needed? %>
-  <div>
-    <span>Will I need special equipment?</span>
-    <%= @listing.equipment.capitalize %>
-  </div>
-<%# Description %>
-  <div>
-    <span>What will I be doing?</span>
-    <p><%= @listing.description %></p>
-  </div>
 </div>
-<%= link_to 'Back', listings_path %> |
-<% if current_user.profile == @listing.profile %>
-  <%= link_to 'Edit', edit_listing_path(@listing) %> |
-  <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> 
-<% end %>
-<% if @listing.favorited.include? current_user.profile %>
-  <%= link_to 'Unfavorite', unfavorite_path, method: :delete unless current_user.profile == @listing.profile %> |
-<% else%>
-  <%= link_to 'Favorite', favorite_path, method: :post unless current_user.profile == @listing.profile %> | 
-<% end %>
-<% if @listing.listing_attendees.include? current_user.profile %>
-  <%= link_to 'Cancel Attendance', unattend_path, method: :delete unless current_user.profile == @listing.profile %>
-<% else%>
-  <%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile or spaces_left == 0 %>
-<% end %>
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
 
-</div>
