@@ -56,11 +56,19 @@
           <strong>Description:</strong>
           <%= @profile.description %>
         </p>
+<<<<<<< HEAD
         <p>
           <% if current_user.profile == @profile %>
             <%= link_to 'Edit', edit_profile_path(@profile) %> |
           <% end %>
           <%= link_to 'Back', profiles_path %>
+=======
+        <p class="card-text">
+        <% if current_user.profile == @profile %>
+          <%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-info" %>
+        <% end %>
+        <%= link_to 'Back', profiles_path, class:"btn btn-info" %>
+>>>>>>> e1b1e0b8c97354586d29094fac7363543003daeb
         </p>
       </div>
     </div>
