@@ -26,6 +26,7 @@ The features of the app include:
 
 
 #### C. Screenshots
+<!-- To be added on completion -->
 
 #### D. Tech stack
 
@@ -44,9 +45,7 @@ The features of the app include:
 To set up and access the app in your own computer, follow the steps below. Please note that this app runs on Rails so you would need to have Ruby and Rails installed on your device. You will also need Postgresql. This app was developed under Rails version 5.2.3.
 
 1. Open your terminal window
-2. Navigate into the folder where you intend to store the repo and run the following commands in terminal:
-
-  git clone https://github.com/tjde/Market
+2. Navigate into the folder where you intend to store the repo and run the following commands in terminal: git clone https://github.com/tjde/Market
 3. Then run: cd Market
              cd src
 4. Run: bundle install -> to install required gems and dependencies for the app to run
@@ -77,21 +76,63 @@ After this, based on the ERD and plans, the models and databases along with thei
 4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
 
 #### C. A workflow diagram of the user journey/s.
-Can be seen in docs/User_Flow_Diagram
+Early in on the project we developed a core user flow that we were aiming to reproduce. This 'Happy Path' relies on a few layers of functionality and can be seen in the userflow diagram.
+
+![User Flow Diagram](/docs/User_Flow_Diagram.png)
+
 #### D. Wireframes
-Can be seen in docs/Midfi_Wireframe
+The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photo of the low fidelity framing below.
+
+![Wireframe 1](/docs/Wireframe_1.png)
+
+The next stage of wireframing was carried out using balsamiq. In stepping up the fidelity, we added a few additional views and ensured we had a mobile and desktop wireframe for each view. These can be seen below.
+
+![Wireframe 1](/docs/Wireframe_1.png)
+
+![Wireframe 2](/docs/Wireframe_2.png)
+
+![Wireframe 3](/docs/Wireframe_3.png)
+
+![Wireframe 4](/docs/Wireframe_4.png)
+
+![Wireframe 5](/docs/Wireframe_5.png)
+
+
 
 #### E. Database Entity Relationship Diagrams
-Can be seen in docs/ERD_1, docs/ERD_2 and docs/ERD_Marketplace_Final
+
+There were a few stages for our ERD. The initial ERD, approved by the Lead Educator, is still accurate in terms of the key data objects that it tracks. The later stages added a couple of tables to track recurring information, e.g. "Cities", and updated the various columns we were using as the project developed slightly. Screenshots of three stages can be seen below and found in docs.
+
+![ERD Stage 1](/docs/ERD_1.png)
+
+![ERD Stage 2](/docs/ERD_2.png)
+
+![ERD Stage 3](/docs/ERD_Marketplace_Final.png)
+
 
 ### V. Planning Process
 
-
 #### A. Project plan & timeline
-Can be seen in various stages in docs/Project_Timeline_1 2 and 3
+
+We utilised a project management tool for project planning and timelining found on Monday.com. The web application allows you to create tasks, mark their importance, allocate team members, provide updates on task status and allocate a time frame for each sprint. It generates a visual timeline of the project based on the input. The screenshots below showcase both of these features.
+
+![Project Timeline Stage 1](/docs/Project_Timeline_1.png)
+
+![Project Timeline Stage 2](/docs/Project_Timeline_2.png)
+
+![Project Timeline Stage 3](/docs/Project_Timeline_3.png)
+
+![Project Timeline Stage 4](/docs/Project_Timeline_4.png)
+
 
 #### B. Screenshots of Trello board(s)
-Can be seen in docs/Trello_1 2 and 3
+
+Trello was used as a place to document features to be implemented and also for documenting how the application would meet the requirements of the assignment brief. The screenshots below are held in docs/Trello_1 2 and 3
+![Trello Stage 1](/docs/Trello_1.png)
+
+![Trello Stage 2](/docs/Trello_2.png)
+
+![Trello Stage 3](/docs/Trello_3.png)
 
 ### VI. Short Answer Questions
 
@@ -100,24 +141,24 @@ Can be seen in docs/Trello_1 2 and 3
 The challenge that we are addressing in this project is to build a fully functional rails webapp that is fully deployed over the internet. This app will be a double-sided marketplace with authentication, authorisation, a payment function, aws cloud storage and image uploading features. 
 
 ##### B. The Problem and why it is important
-
-Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
+<!-- Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving? -->
 
 With the increasing number of individuals choosing to travel and move to other places, it can be difficult to build new friendships in foreign places. Hobbybuddies aims to address the need for connection by give people more chances to form more intimate connections through enaging in shared interests with smaller groups of people.
 
 
 ##### C. Project Description
+<!-- Describe the project will you be conducting and how your App will address the needs.  -->
 
-Describe the project will you be conducting and how your App will address the needs. 
-
-Our app, HobbyBuddies enables individuals to quickly find and join the activity listings posted by other people who are planning to engage in a specific activity of interest. Upon visiting the website, a user is able to search listings based on a specific hobby and city in Australia. This will only be a brief snippet of the listing, however. After the succesful completion of the sign in process where they will be prompted to pay a nominal one off fee and complete their profile, the user can then create their own listings that others can join or see the specific details of the listings of others where they themselves can join. 
+Our app, HobbyBuddies, enables individuals to quickly find and join the activity listings posted by other people who are planning to engage in a specific activity of interest. Upon visiting the website, a user is able to search listings based on a specific hobby and city in Australia. This will only be a brief snippet of the listing, however. After the succesful completion of the sign in process where they will be prompted to pay a nominal one off fee and complete their profile, the user can then create their own listings that others can join or see the specific details of the listings of others and mark that they intend to join in. 
 
 ##### D. App Network Infrastructure
-Describe the network infrastructure the App may be based on.
+<!-- Describe the network infrastructure the App may be based on. -->
 
 Heroku is the central network piece for our deployed App. It relies on Github for accessing your source code. Essentially, the code is stored in a remote location, as part of Github's file structure, and associated with the application's local repository. Thus, as code is pushed to that remote, Heroku is able to access the updated code.
 
 The Heroku platform then executes the application on it's system, retrieving dependancies and assets. This process initalises what is known as a Dyno, a virtualized Unix container inside their system based on the app's file structure. Importantly, the application's slug is also identified as a 'web' process. Heroku then works with the inbuilt Rails web server, 'Puma', to allow for HTTP request traffic. Heroku's routers manage the flow of these requests in and out of the application and Puma receives them and returns a response compiled from the source code.
+
+The last component is the production database. Heroku creates a new instance of postgresql on their system by running the migrations and seed file (if specified). This database exists separately on the network (for security) and Heroku manages the flow of information to and from the database.
 
 ##### E. Software Usage
 Identify and describe the software to be used in your App.
@@ -140,7 +181,13 @@ The database used in our app is Postgresql. Firstly, sql is the default database
 
 
 ##### G. Production Database Setup
-Identify and describe the production database setup (i.e. postgres instance).
+<!-- Identify and describe the production database setup (i.e. postgres instance). -->
+
+As discussed briefly in the network section, Heroku creates a new instance of a postgresql database. This occurs automatically if the gemfile includes the 'pg' gem. Alternatively, the command "$ heroku addons:create heroku-postgresql:hobby-dev" tells heroku to create a postgresql database on the free tier. A database url is added to the app's configuration. 
+
+The database tables are setup based on the migration files in the source code of the application. Additionally, these tables can be populated from the seed file by running a heroku run rake db:seed command. A number of rake commands are built in to the heroku platform to allow the application manager to update and adjust the database setup.
+
+The database for our app is currently structured to track Listing, User and Profile information. There are a few minor tables connected with these models to hold information related to them. 
 
 ##### H. App Architecture
 Describe the architecture of your App.
@@ -188,22 +235,22 @@ Provide Wireframes for your App.
 ##### Q. Task Allocation and Tracking
 Describe the way tasks are allocated and tracked in your project.
 
-An initial list of overall tasks based on discussed features and requirements were compiled. From here, the team used Monday, an online project management software to evaluate pending and current tasks to distribute to team members and keep abreast of things.
+An initial list of overall tasks based on discussed features and requirements were compiled. From here, the team used Monday, an online project management software to evaluate pending and current tasks to distribute to team members and keep abreast of things. As a project management application it provides a numer of tools that allowed us to allocate tasks, divide tasks and keep each other updated on progress.
 
 ##### R. Agile Method Implementation
 Discuss how Agile methodology is being implemented in your project.
 
-Feature development was split into sprints running for a number of days, allocated between the two team members. Each feature was also tagged on importance. Please see screenshot above under project timeline.
+Our application development process relied heavily on the Agile methodology. The app was segmented carefully into distinct features that were allocated and given a time frame. These large features, e.g. authorization, were further broken down into smaller stages. These short stages were treated as sprints. Pieces of work that could be quickly and easily coded, then quickly and easily tested, adjusted then committed. Thus, these larger features were split into sprints running for a number of days, allocated between the two team members. In order to ensure the efficiency of this process, progress was tracked through Monday.com and each feature marked with it's respective importance and current status. Please see screenshots above under the project timeline section.
 
 ##### S. Source Control
 Provide an overview and description of your Source control process.
 
-The team structured our git repository so that the Master branch is only ever updated with working code. Another remote branch called ‘Dev’ acted as the intermediary for potential merge conflicts that both team members pushed to after working on the code on local branches that branched out from the local dev branch. In this manner, we maintained the integrity of our source code.
+The team structured our git repository so that the Master branch is only ever updated with working code through the GitHub online interface. Another remote branch called ‘Dev’, short for 'development', acted as the intermediary for potential merge conflicts. For the majority of the project, these were the only two remotes maintained. Both team members created separate branches locally that they used to edit and test code before merging into the development branch. Any conflicts were then resolved locally, using the Visual Studio tool for managing conflicts. Finally, a git pull command would be run to manage any conflicts between the remote dev and local dev before pushing it to GitHub. Pull requests were then used to update the Master branch, relying on the GitHub interface to identify conflicts between dev and master, although this did not occur. Each of the local branches were then updated by pulling from the remote master.
 
 ##### T. Testing Process
 Provide an overview and description of your Testing process.
 
-The team consolidated a list of the main features of the app in a column on the spreadsheet. We then  compiled several test cases for each feature that we believe should work or not work in another column. We then ran each test case, listing down the results and comparing them to what was expected. Any bugs found, were fixed in the code. For a more information, please look at the docs folder for a copy of the test spreadsheet.
+The team consolidated a list of the key features of the app in a column on the spreadsheet. We then compiled several test cases for each feature that we believe should work or not work in a separate sheet, marking each test with it's feature id and unique test id. We then identified the outcome that we wanted for that particular test case, i.e. what functionality we were expecting. We then worked through each test case, listing down the results and comparing them to what was expected. A few major issues were identified, fixed in the code and that test case run through again to ensure proper resolution. For more information, a full copy of the testing spreadsheet is attached above.
 
 ##### U. Information System Security Requirements
 Discuss and analyse requirements related to information system security.
