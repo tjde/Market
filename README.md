@@ -110,7 +110,7 @@ With the increasing number of individuals choosing to travel and move to other p
 
 Describe the project will you be conducting and how your App will address the needs. 
 
-Our app, HobbyBuddies enables individuals to quickly find and join the activity listings posted by other people who are planning to engage in a specific activity of interest. Upon visiting the website, a user is able to search listings based on a specific hobby and city in Australia. This will only be a brief snippet of the listing, however. After the succesful completion of the sign in process where they will be prompted to pay a nominal one off fee and complete their profile, the user can then create their own listings that others can join or see the specific details of the listings of others where they themselves can join. 
+Our app, HobbyBuddies, enables individuals to quickly find and join the activity listings posted by other people who are planning to engage in a specific activity of interest. Upon visiting the website, a user is able to search listings based on a specific hobby and city in Australia. This will only be a brief snippet of the listing, however. After the succesful completion of the sign in process where they will be prompted to pay a nominal one off fee and complete their profile, the user can then create their own listings that others can join or see the specific details of the listings of others and mark that they intend to join in. 
 
 ##### D. App Network Infrastructure
 Describe the network infrastructure the App may be based on.
@@ -139,6 +139,8 @@ The database used in our app is Postgresql. Firstly, sql is the default database
 
 ##### G. Production Database Setup
 Identify and describe the production database setup (i.e. postgres instance).
+
+
 
 ##### H. App Architecture
 Describe the architecture of your App.
