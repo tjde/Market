@@ -1,38 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class="d-flex justify-content-center">
 
-<%= form_tag(listings_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
-  <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
-  <%= submit_tag ("Search") %>
-<% end %>
 
-<h1>Listings</h1>
+  <p id="notice"><%= notice %></p>
 
-<% @listings.each do |listing| %>
-<% if listing.profile != current_user.profile %>
-<%= link_to(listing) do %>
-<div class="card">
-  <div>
-    <%= image_tag listing.profile.picture if listing.profile.picture.attached? %>
-    <p>Hi I'm <%= listing.profile.first_name %>!</p>
-  </div>
-  <div>
-  <table >
-    <tr>
-      <th>What: </th>
-      <td><%= listing.hobby.name.capitalize %>!</td>
-    </tr>
-    <tr>
-      <th>Where: </th>
-      <td><%= listing.city.name %></td>
-    </tr>
-    <tr>
-      <th>When: </th>
-      <td><%= listing.date.strftime("%A, %b %d") %></td>
-    </tr>
-  </table>
-  </div>
+  <%= form_tag(listings_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+    <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
+    <%= submit_tag ("Search") %>
+  <% end %>
+
+
+
+
+  <h1>Listings</h1>
 </div>
+
+<div class="container">
+<div class="row">
+  <% @listings.each do |listing| %>
+  <% if listing.profile.user != current_user %>
+  <%= link_to(listing) do %>
+  <div class="card mb-3 col-2 col-md-1" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag listing.profile.picture, class:"card-img mt-5 ml-2", alt:"profile picture" if listing.profile.picture.attached? %>
+      <h4 class="text-center mt-4">Hi Im <%= listing.profile.first_name %>!</h4>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body ml-3">
+        <h5 class="card-title" > <%= listing.hobby.name.capitalize %></h5>
+        <p class="card-text">Activity Date: <%= listing.date.strftime("%A, %b %d") %> </p>
+        <p class="card-text">Activity Location: <%= listing.city.name %></p>
+        <p class="card-text">People Attending: 
+        <% spaces_taken = listing.listing_attendees.count%>
+          <% spaces_left = listing.capacity - spaces_taken %>
+          <% case spaces_left %>
+          <% when 0 %>
+            <% remaining = "sorry, there are currently no spaces remaining"%>
+          <% when 1 %>
+            <% remaining = "there is 1 space remaining"%>
+          <% else %>
+            <% remaining = "there are #{spaces_left} spaces remaining" %>
+          <% end %>
+          <% if spaces_taken == 0 %>
+            <span>No one has joined this listing yet. There are <%= listing.capacity %> spaces</span>
+          <% elsif spaces_taken == 1 %>
+            <span><%= spaces_taken %> person is already attending | </span>
+            <span><%= remaining %></span>
+          <% elsif spaces_taken > 1 %>
+            <span><%= spaces_taken %> people are already attending | </span>
+            <span><%= remaining %></span>
+            <% end %>
+        </p>
+      </div>
+    </div>
+</div>
+</div>
+
 <% end %>
 <% end %>
 <% end %>
