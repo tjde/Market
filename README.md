@@ -115,12 +115,14 @@ Our app, HobbyBuddies, enables individuals to quickly find and join the activity
 ##### D. App Network Infrastructure
 Describe the network infrastructure the App may be based on.
 
+Heroku is the central network piece for our deployed App. It relies on Github for accessing your source code. Essentially, the code is stored in a remote location, as part of Github's file structure, and associated with the application's local repository. Thus, as code is pushed to that remote, Heroku is able to access the updated code.
 
+The Heroku platform then executes the application on it's system, retrieving dependancies and assets. This process initalises what is known as a Dyno, a virtualized Unix container inside their system based on the app's file structure. Importantly, the application's slug is also identified as a 'web' process. Heroku then works with the inbuilt Rails web server, 'Puma', to allow for HTTP request traffic. Heroku's routers manage the flow of these requests in and out of the application and Puma receives them and returns a response compiled from the source code.
 
 ##### E. Software Usage
 Identify and describe the software to be used in your App.
 
-A range of softwar was utilised, including:
+A range of software was utilised, including:
 
 - Trello – For ideation, overall task list and user stories
 - Monday – For actual development timeline overview and task allocation
