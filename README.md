@@ -83,7 +83,17 @@ Early in on the project we developed a core user flow that we were aiming to rep
 #### D. Wireframes
 Can be seen in docs/Midfi_Wireframe
 
-![User Flow Diagram](/docs/Midfi_Wireframe.pdf)
+![Wireframe 1](/docs/Wireframe_1.png)
+
+![Wireframe 2](/docs/Wireframe_2.png)
+
+![Wireframe 3](/docs/Wireframe_3.png)
+
+![Wireframe 4](/docs/Wireframe_4.png)
+
+![Wireframe 5](/docs/Wireframe_5.png)
+
+
 
 #### E. Database Entity Relationship Diagrams
 
@@ -167,7 +177,7 @@ The database used in our app is Postgresql. Firstly, sql is the default database
 
 
 ##### G. Production Database Setup
-Identify and describe the production database setup (i.e. postgres instance).
+<!-- Identify and describe the production database setup (i.e. postgres instance). -->
 
 As discussed briefly in the network section, Heroku creates a new instance of a postgresql database. This occurs automatically if the gemfile includes the 'pg' gem. Alternatively, the command "$ heroku addons:create heroku-postgresql:hobby-dev" tells heroku to create a postgresql database on the free tier. A database url is added to the app's configuration. 
 
