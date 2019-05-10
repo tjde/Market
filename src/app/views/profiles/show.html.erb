@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="text-center">
+<div class="d-flex justify-content-center mb-4">
+    <div class="text-center">
 
         <p id="notice"><%= notice %></p>
 
@@ -57,7 +57,7 @@
           <%= @profile.description %>
         </p>
         <p class="card-text">
-          <%= link_to 'Edit', edit_profile_path(@profile) %> | <%= link_to 'Back', profiles_path %> 
+          <%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-info" %> <%= link_to 'Back', profiles_path, class:"btn btn-info" %> 
         </p>
     </div>
   </div>

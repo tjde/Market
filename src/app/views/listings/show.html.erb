@@ -1,9 +1,9 @@
 
 <div class="d-flex justify-content-center">
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3" style="max-width: 700px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <%= image_tag @listing.profile.picture, class:"card-img mt-5 ml-2", alt:"profile picture" if @listing.profile.picture.attached? %>
+      <%= image_tag @listing.profile.picture, class:"card-img img-thumbnail mt-5 ml-2", alt:"profile picture" if @listing.profile.picture.attached? %>
       <h4 class="text-center mt-4">Hi Im <%= @listing.profile.first_name %>!</h4>
     </div>
     <div class="col-md-8">
@@ -40,14 +40,14 @@
               <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info" %> 
             <% end %>
             <% if @listing.favorited.include? current_user.profile %>
-              <%= link_to 'Unfavorite', unfavorite_path, method: :delete unless current_user.profile == @listing.profile %> 
+              <%= link_to 'Unfavorite', unfavorite_path,  class:"btn btn-info", method: :delete unless current_user.profile == @listing.profile %> 
             <% else%>
-              <%= link_to 'Favorite', favorite_path, method: :post unless current_user.profile == @listing.profile %> 
+              <%= link_to 'Favorite', favorite_path, class:"btn btn-info", method: :post unless current_user.profile == @listing.profile %> 
             <% end %>
             <% if @listing.listing_attendees.include? current_user.profile %>
-              <%= link_to 'Cancel Attendance', unattend_path, method: :delete unless current_user.profile == @listing.profile %>
+              <%= link_to 'Cancel Attendance', unattend_path, class:"btn btn-info", method: :delete unless current_user.profile == @listing.profile %>
             <% else%>
-              <%= link_to 'Attend', attend_path, method: :post unless current_user.profile == @listing.profile or spaces_left == 0 %>
+              <%= link_to 'Attend', attend_path, class:"btn btn-info", method: :post unless current_user.profile == @listing.profile or spaces_left == 0 %>
             <% end %>
             <% if flash[:notice] %>
               <div class="notice"><%= flash[:notice] %></div>
