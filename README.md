@@ -81,7 +81,11 @@ Early in on the project we developed a core user flow that we were aiming to rep
 ![User Flow Diagram](/docs/User_Flow_Diagram.png)
 
 #### D. Wireframes
-Can be seen in docs/Midfi_Wireframe
+The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photo of the low fidelity framing below.
+
+![Wireframe 1](/docs/Wireframe_1.png)
+
+The next stage of wireframing was carried out using balsamiq. In stepping up the fidelity, we added a few additional views and ensured we had a mobile and desktop wireframe for each view. These can be seen below.
 
 ![Wireframe 1](/docs/Wireframe_1.png)
 
