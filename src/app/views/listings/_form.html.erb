@@ -31,7 +31,7 @@
 
   <div class="field">
     <%= form.label :date %>
-    <input type="date" name="listing[date]" id="listing_date">
+    <input type="date" name="listing[date]" id="listing_date", required>
   </div>
 
   <div class="field">
@@ -41,7 +41,7 @@
 
   <div class="field">
     <%= form.label :capacity %>
-    <%= form.number_field :capacity, min: 1, placeholder: "How many people can join?" %>
+    <%= form.number_field :capacity, min: 1, placeholder: "How many people can join?", required: true %>
   </div>
 
   <div class="actions">
