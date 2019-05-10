@@ -10,7 +10,23 @@
 //     height: auto;
 //     transform: translate(-50%, -50%);
 //    }
+#container {
+    background: rgba(255, 255, 255, 0.575);
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+}
 
+#form {
+    background: rgba(255, 255, 255, 0.438);
+}
+
+#background {
+    background: rgba(255, 255, 255, 0.301) url(Landing.jpg) no-repeat center;
+    background-size: cover;
+    height: 60vh;
+    width: 80vw;
+}
 .header {
     position: relative;
 }
