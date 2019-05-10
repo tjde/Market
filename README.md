@@ -6,7 +6,7 @@
 
 #### A. Problem definition / purpose
 
-The purpose of the app is to provide a means for users to find other people to engage in hobbies with together. Users can create listings centred on specific hobbies which include a brief description, date, time, location and number of people invited to join. Other users of the site can then search listings put up by others based on a specific hobby and Australian major city location
+The purpose of the app is to provide a means for users to find other people to engage in hobbies with together. Users can create listings centred on specific hobbies which include a brief description, date, time, location and number of people invited to join. Other users of the site can then search listings put up by others based on a specific hobby and Australian major city location. It aims to address barriers that prevent people from participating in their preferred hobby and picking up new hobby. Namely, barriers that exist in today's society that limit people's connections with others in the community and limit their ability to participate.
 
 #### B. Functionality / features
 
@@ -44,29 +44,29 @@ The features of the app include:
 To set up and access the app in your own computer, follow the steps below. Please note that this app runs on Rails so you would need to have Ruby and Rails installed on your device. You will also need Postgresql. This app was developed under Rails version 5.2.3.
 
 1. Open your terminal window
-2. Navigate into a folder you wanted to download your repo and run the following command in terminal:
+2. Navigate into the folder where you intend to store the repo and run the following commands in terminal:
 
   git clone https://github.com/tjde/Market
 3. Then run: cd Market
              cd src
-  Click enter
 4. Run: bundle install -> to install required gems and dependencies for the app to run
 5. Run: rails db:create -> to create the database
 6. Run: rails db:migrate -> to migrate the database
 7. Run: rails s -> to start the server
 8. Go to your browser window and type this url: localhost:3000
+9. The src code is stored in the src directory, any changes you wish to make to the app can be carried out by opening that subfolder in a code editor.
 
 ### IV. Design documentation
 
 
 #### A. Design process
 
-The group started by coming up with different ideas and considering the potential scope of each idea before finally deciding on HobbyBuddies which we considered interesting and useful.
+The group started by coming up with a large range of different ideas and writing down those that seemed interesting and achievable. We then considered the potential scope of these selected ideas before narrowing in on the hobby sharing idea. We proceeded to more thoroughly consider how this idea could be executed before moving on to the assignment brief. Our chosen idea is represented in the HobbyBuddies app, and is also the idea we believed had the most potential to be useful, engaging and marketable.
 
 We then started a trello board with ideas for features and stretch goals we would like to achieve. At this point, we also checked the requirements of the project, ensuring that this would be added to an overall to-do list so as not to be missed.
 We initially did potential wireframes in paper and when the layout was agreed on, this was laid out in balsamiq for a more polished interface. Moodboarding was done at Pexel where pictures were collected with a focus on colors that evoke a feeling of anticipation, joy and excitement to the user which is what we want them feel when they use the app and which ties to the app concept of being a platform where people may be able to find a new hobby they enjoy or friends they can do them with.
 
-At this point, we also came up with the user stories, ERD and User Flow Diagram, ensuring the foundation for the app was meticulously laid out before proceeding with the actual coding. 
+Following this early brainstorming and wirefarming, we worked on developing: user stories, an ERD and User Flow Diagram, ensuring the foundation for the app was meticulously laid out before proceeding with the actual coding. The ERD and wireframes in particular were then approved before proceeding further.
 After this, based on the ERD and plans, the models and databases along with their associations were created. A decision was made to split the controllers based on their function and the agreed app structure. The project timeline and task allocation was reviewed each morning and at the end of the day to evaluate progress to completion. Once the background logic of the app was set and it was functional, testing and styling commenced to form the finalised web app which was deployed in Heroku. 
 
 #### B. User stories
@@ -77,22 +77,27 @@ After this, based on the ERD and plans, the models and databases along with thei
 4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
 
 #### C. A workflow diagram of the user journey/s.
-
+Can be seen in docs/User_Flow_Diagram
 #### D. Wireframes
+Can be seen in docs/Midfi_Wireframe
 
 #### E. Database Entity Relationship Diagrams
+Can be seen in docs/ERD_1, docs/ERD_2 and docs/ERD_Marketplace_Final
 
 ### V. Planning Process
 
+
 #### A. Project plan & timeline
+Can be seen in various stages in docs/Project_Timeline_1 2 and 3
 
 #### B. Screenshots of Trello board(s)
+Can be seen in docs/Trello_1 2 and 3
 
 ### VI. Short Answer Questions
 
 ##### A. Project Challenge
 
-The challenge that we are addressing in this project is to build a fully functional rails webapp that is fully deployed over the internet. This app will be a double-sided marketplace with an authentication, authorisation, payment function and image uploading ability. 
+The challenge that we are addressing in this project is to build a fully functional rails webapp that is fully deployed over the internet. This app will be a double-sided marketplace with authentication, authorisation, a payment function, aws cloud storage and image uploading features. 
 
 ##### B. The Problem and why it is important
 
@@ -110,10 +115,12 @@ Our app, HobbyBuddies enables individuals to quickly find and join the activity 
 ##### D. App Network Infrastructure
 Describe the network infrastructure the App may be based on.
 
+
+
 ##### E. Software Usage
 Identify and describe the software to be used in your App.
 
-The software we used were the following:
+A range of softwar was utilised, including:
 
 - Trello – For ideation, overall task list and user stories
 - Monday – For actual development timeline overview and task allocation
