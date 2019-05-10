@@ -13,7 +13,7 @@
 
 <div class="container">
       <div class="field">
-          <%= form.label :first_name %>
+          <%= form.label :first_name, "*First Name" %>
           <%= form.text_field :first_name, required: true %>
       </div>
       
@@ -24,17 +24,17 @@
       </div>
 
       <div class="field">
-        <%= form.label :gender %>
+        <%= form.label :gender, "*Gender" %>
         <%= form.select :gender, options_for_select([['male'], ['female'], ['other']]), required: true %>
       </div>
 
       <div class="field">
-        <%= form.label :age_bracket %>
+        <%= form.label :age_bracket, "*Age" %>
         <%= form.select :age_bracket, options_for_select([['18-25'], ['26-33'], ['34+']]), required: true %>
       </div>
 
       <div class="field">
-        <%= form.label :city_id %>
+        <%= form.label :city_id, "*City" %>
         <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true, prompt: "City..." %>
       </div>
 
@@ -49,8 +49,8 @@
       </div>  
 
       <div class="field">
-        <%= form.label :description, "Tell us about yourself: " %>
-        <%= form.text_area :description, required: true %>
+        <%= form.label :description, "*About Me" %>
+        <%= form.text_area :description, required: true, placeholder: "Tell us more about yourself." %>
       </div>
 
       <div class="field">
@@ -59,7 +59,7 @@
       </div>
 
       <div class="container">
-        <button type="button" class="btn btn-info"><%= form.submit %> </button>
+      <%= form.submit %> 
       </div>
     
     <% end %>
