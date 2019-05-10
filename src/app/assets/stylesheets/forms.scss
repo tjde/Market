@@ -1,14 +1,29 @@
+
+div.a {
+    text-align: center;
+}
+
 #h2 {
     margin: 4px 0px;
     text-align: center;
 }
+
+div.actions {
+    text-align: center;
+}
+// .field {
+//     padding: 4px 0px;
+//     margin: 4px 2px;
+
+// }
+
 #form {
-    border:1px solid black;
-}
-
-.field {
-    padding: 4px 0px;
-    margin: 4px 2px;
-
-}
+//     /* Just to center the form on the page */
+    margin: 0 auto;
+//     width: 400px;
+//     /* To see the outline of the form */
+    // padding: 1em;
+    // border: 1px solid rgb(77, 36, 36);
+    // border-radius: 1em;
+ }
 
