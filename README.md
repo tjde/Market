@@ -26,6 +26,7 @@ The features of the app include:
 
 
 #### C. Screenshots
+<!-- To be added on completion -->
 
 #### D. Tech stack
 
@@ -44,9 +45,7 @@ The features of the app include:
 To set up and access the app in your own computer, follow the steps below. Please note that this app runs on Rails so you would need to have Ruby and Rails installed on your device. You will also need Postgresql. This app was developed under Rails version 5.2.3.
 
 1. Open your terminal window
-2. Navigate into the folder where you intend to store the repo and run the following commands in terminal:
-
-  git clone https://github.com/tjde/Market
+2. Navigate into the folder where you intend to store the repo and run the following commands in terminal: git clone https://github.com/tjde/Market
 3. Then run: cd Market
              cd src
 4. Run: bundle install -> to install required gems and dependencies for the app to run
@@ -77,9 +76,14 @@ After this, based on the ERD and plans, the models and databases along with thei
 4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
 
 #### C. A workflow diagram of the user journey/s.
-Can be seen in docs/User_Flow_Diagram
+Early in on the project we developed a core user flow that we were aiming to reproduce. This 'Happy Path' relies on a few layers of functionality and can be seen in the userflow diagram.
+
+![User Flow Diagram](/docs/User_Flow_Diagram.png)
+
 #### D. Wireframes
 Can be seen in docs/Midfi_Wireframe
+
+![User Flow Diagram](/docs/Midfi_Wireframe.pdf)
 
 #### E. Database Entity Relationship Diagrams
 
@@ -123,14 +127,12 @@ Trello was used as a place to document features to be implemented and also for d
 The challenge that we are addressing in this project is to build a fully functional rails webapp that is fully deployed over the internet. This app will be a double-sided marketplace with authentication, authorisation, a payment function, aws cloud storage and image uploading features. 
 
 ##### B. The Problem and why it is important
-
 <!-- Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving? -->
 
 With the increasing number of individuals choosing to travel and move to other places, it can be difficult to build new friendships in foreign places. Hobbybuddies aims to address the need for connection by give people more chances to form more intimate connections through enaging in shared interests with smaller groups of people.
 
 
 ##### C. Project Description
-
 <!-- Describe the project will you be conducting and how your App will address the needs.  -->
 
 Our app, HobbyBuddies, enables individuals to quickly find and join the activity listings posted by other people who are planning to engage in a specific activity of interest. Upon visiting the website, a user is able to search listings based on a specific hobby and city in Australia. This will only be a brief snippet of the listing, however. After the succesful completion of the sign in process where they will be prompted to pay a nominal one off fee and complete their profile, the user can then create their own listings that others can join or see the specific details of the listings of others and mark that they intend to join in. 
