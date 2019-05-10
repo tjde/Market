@@ -1,19 +1,20 @@
-<header>
-  <div class="overlay"></div>
-  <div class="container h-100">
-    <div class="d-flex h-100 text-center align-items-center">
-      <div class="w-100 text-white">
+<div id="d-flex justify-content-center">
+  <div class="container" id="background">
+    <div class="d-flex h-100 text-center align-items-center" id="form">
+      <div class="w-100">
         <h1 class="display-3">HobbyBuddies</h1>
         <p class="lead mb-0">Because Hobbies are better with buddies</p>
         <%= form_tag(listings_path, method: :get) do %>
-          <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
+          <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...', class: "form-control-lg") %>
           <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
-          <%= submit_tag ("Search"), class: "btn btn-outline-secondary" %>
+          <%= submit_tag ("Search"), class: "btn btn-info btn-lg" %>
           <% end %>
       </div>
     </div>
   </div>
-</header>
+  <div id=overlay>
+  </div>
+</div>
 
 
 

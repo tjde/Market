@@ -1,7 +1,6 @@
+
+<p id="notice"><%= notice %></p>
 <div class="d-flex justify-content-center">
-
-
-  <p id="notice"><%= notice %></p>
 
   <%= form_tag(listings_path, method: :get) do %>
     <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
@@ -12,9 +11,10 @@
 
 
 
-  <h1>Listings</h1>
+
 </div>
 
+<h1>Listings</h1>
 <div class="container">
 <div class="row">
   <% @listings.each do |listing| %>
