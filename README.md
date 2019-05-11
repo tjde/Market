@@ -83,9 +83,9 @@ Early in on the project we developed a core user flow that we were aiming to rep
 #### D. Wireframes
 The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photos of the low fidelity framing below.
 
-![Wireframe 1](/docs/P_Wireframe1.png)
+![Wireframe 1](/docs/P_Wireframe1.jpg)
 
-![Wireframe 2](/docs/P_Wireframe2.png)
+![Wireframe 2](/docs/P_Wireframe2.jpg)
 
 The next stage of wireframing was carried out using balsamiq. In stepping up the fidelity, we added a few additional views and ensured we had a mobile and desktop wireframe for each view. These can be seen below.
 
