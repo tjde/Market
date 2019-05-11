@@ -183,7 +183,7 @@ The database used in our app is Postgresql. Firstly, sql is the default database
 ##### G. Production Database Setup
 <!-- Identify and describe the production database setup (i.e. postgres instance). -->
 
-As discussed briefly in the network section, Heroku creates a new instance of a postgresql database. This occurs automatically if the gemfile includes the 'pg' gem. Alternatively, the command "$ heroku addons:create heroku-postgresql:hobby-dev" tells heroku to create a postgresql database on the free tier. A database url is added to the app's configuration. 
+As discussed briefly in the network section, Heroku creates a new instance of a postgresql database. This occurs automatically if the gemfile includes the 'pg' gem. Alternatively, the command "$ heroku addons:create heroku-postgresql:hobby-dev" tells heroku to create a postgresql database on the free tier. A database url is automatically added to the app's configuration that allows the app to communicate, over the network, with the instance of postgresql created by Heroku.
 
 The database tables are setup based on the migration files in the source code of the application. Additionally, these tables can be populated from the seed file by running a heroku run rake db:seed command. A number of rake commands are built in to the heroku platform to allow the application manager to update and adjust the database setup.
 
@@ -197,7 +197,13 @@ Our app runs on the Ruby on Rails framework which acts as our server side develo
 ##### I. App Abstractions
 Explain the different high-level components (abstractions) in your App.
 
-The Model-View-Controller (MVC) pattern allows for a separation of concerns. The Model takes care of managing the data of the application and the logic pertaining to the retrieval of that data. The View holds the functions which the user can actually see and interact with. The controller acts as the intermediary between the Model and the View, in that it processes the user request and routes the data obtained from the Model and sends it to the Vew to be presented to the user.
+The Model-View-Controller (MVC) pattern allows for a separation of concerns. This means that each part of the application deals with specific areas of functionality. Thanks to Rails configuration based approach, this is possible with minimal setup.
+
+The Model takes care of managing the data of the application and the logic pertaining to the retrieval of that data. The model files are where we establish the associations between different database objects and act as a guide for the Object Relational Mapping built into Rails.
+
+The View holds the least abstraction, as it is primarily responsible just for the html. However, Rails does provide some clever configuration that utilises form helpers, and interaction with the controller, to simplify the edit and new forms into one partial that acts responsively depending on whether it is passed an empty record or a populated one.
+
+The Controllers are probably where the most abstraction occurs. They act as the intermediary between the Model and the View, holding key logic that handles user requests, routes the data obtained from the Model and sends it to the View to be presented to the user. The gem Devise adds a lot to this inbuilt abstraction. Allowing us to pass logic to easy to understand helper methods e.g. 'user_signed_in?'. This not only simplifies the build process but makes the code easier to understand for other developers. Passing these methods into the application controller is particularly powerful, as it allows us to impact our whole site efficiently and consistently with authorisation and authentication.
 
 ##### J. Third Party Services
 Detail any third party services that your App will use.
@@ -210,16 +216,30 @@ The app uses the following third party services:
 ##### K. Marketplace Apps with similar data structure
 Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
-The marketplace apps that have similar data structure to ours but in a much larger scale are Ebay and Gumtree where items are linked together in relationship associations and are accessed in this way. For instance, to list items on Ebay and Gumtree, you would need to pick an overall category, then subcategory before reaching the form that allows you to list the specific aspects of the item. Similary, our app uses forms like these for users to put up listings where other users can go and retrieve specific listings based on the hobby and city parameters.
+The marketplace apps that have similar data structure to ours but in a much larger scale are Ebay and Gumtree where items are linked together in relationship associations and are accessed in this way. For instance, to list items on Ebay and Gumtree, you would need to pick an overall category, then subcategory before reaching the form that allows you to list the specific aspects of the item. Similary, our app uses forms like these for users to put up listings where other users can go and retrieve specific listings based on the hobby and city parameters. Currently, our database is setup with each hobby placed under a named category using a belongs_to association. This does not currently have a function but can eventually serve a similar purpose, where users select categories and subcategories when creating a listing in order to facilitate similar search capabilites to a marketplace like Ebay.
+
+Both of these two-sided marketplaces also track user/profile data, and associate these records with listing data in various ways. For example, a user can 'watch' a listing. This would likely create a record similar to the join tables we have used to allow user's to favorite a listing. A user can also create and own a listing. Each listing recognizes whether the user signed in created it, and thus whether they have authorisation edit the listing or otherwise. Finally, a user can purchase an item. This is handled largely through Ebay, incorporating a third party payment app, and they store and track purchase data to ensure they can effectively handle legal disputes. This data would need to be associated with a payment, an item and a user. Again, this is somewhat similar to the associations we have created between users and listings in the attendees join table.
 
 ##### L. Database Relations
 Discuss the database relations to be implemented.
 
+As mentioned before in discussing the database setup. The key objects being tracked in our application are listing, profile and user. The most basic of the associations here are between profile and user. A user has one profile and a profile belongs to a user. This ensures that a profile cannot be created without a person being signed in as a user through Devise's authentication process. A profile then has many listings and a listing belongs to a profile. This means that only one profile is identified as owning each listing, and thus being authorised to manage that listing. There are some other minor associations involved in setting up a listing. A hobby has on category, and has many listings. This means that a listing belongs to a hobby. This setup allows us to find listings through categories or hobbies, providing a good search method for the user. A listing and a profile also belong to a city, which is setup as a separate table, allowing for location targeted searching from a prepopulated list of locations.
+
+The remaining assocations are slightly more complex, utilising the has many through assocations. A listing and a profile are both connected to the attendees and favorites tables. This allows for records to be created that identify for each listing, who is attending. For each profile, what are they attending and what have they favorited. Profiles are also connected to hobbies in a similar way, through join tables, that allows the user to indicate hobbies they currently participate in and ones they would like to. This is primarily for future functionality involving suggesting listings to users based on activity and their interests.
+
 ##### M. Active Record Associations of the Models
 Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
+The project is setup to ensure information is accessible from the standpoint of a profile, and from a listing.
+
+To further expand on the above. We can utilise the built in active record associations to call, for example, Listing.listing_attendees.profiles. This allows us to identify,on a listing page, who is attending/how many are attending. It also allows us to identify, for a user, what events they have marked themselves as attending. It also allows us to call current_user.profile.listings in order to identify for the user what listings they have created and give them links to manage those listings.
+
 ##### N. Database Schema Design
 Provide your database schema design.
+
+As seen above, our database schema is based on our ERD. The final iteration of that can be seen below. Alternatively, the schema file itself can be found under src/app/db/schema.rb
+
+![ERD Stage 3](/docs/ERD_Marketplace_Final.png)
 
 ##### O. User Stories
 Provide User stories for your App.
@@ -232,15 +252,17 @@ Provide User stories for your App.
 ##### P. Wireframes
 Provide Wireframes for your App.
 
+The wireframes for our application are linked above, at the top of our readme
+
 ##### Q. Task Allocation and Tracking
 Describe the way tasks are allocated and tracked in your project.
 
-An initial list of overall tasks based on discussed features and requirements were compiled. From here, the team used Monday, an online project management software to evaluate pending and current tasks to distribute to team members and keep abreast of things. As a project management application it provides a numer of tools that allowed us to allocate tasks, divide tasks and keep each other updated on progress.
+An initial list of overall tasks based on discussed features and requirements were compiled. From here, the team used Monday.com, an online project management software to evaluate pending and current tasks to distribute to team members and keep abreast of things. As a project management application it provides a numer of tools that allowed us to allocate tasks, divide tasks and keep each other updated on progress. This is discussed further above.
 
 ##### R. Agile Method Implementation
 Discuss how Agile methodology is being implemented in your project.
 
-Our application development process relied heavily on the Agile methodology. The app was segmented carefully into distinct features that were allocated and given a time frame. These large features, e.g. authorization, were further broken down into smaller stages. These short stages were treated as sprints. Pieces of work that could be quickly and easily coded, then quickly and easily tested, adjusted then committed. Thus, these larger features were split into sprints running for a number of days, allocated between the two team members. In order to ensure the efficiency of this process, progress was tracked through Monday.com and each feature marked with it's respective importance and current status. Please see screenshots above under the project timeline section.
+Our application development process relied heavily on the Agile methodology. The app was segmented carefully into distinct features that were allocated and given a time frame. These large features, e.g. authorization, were further broken down into smaller stages. These short stages were treated as sprints. Pieces of work that could be quickly and easily coded,then quickly and easily tested, adjusted then committed. Thus,these larger features were split into sprints running for a number of days, allocated between the two team members. In order to ensure the efficiency of this process, progress was tracked through Monday.com and each feature marked with it's respective importance and current status. Please see screenshots above under the project timeline section.
 
 ##### S. Source Control
 Provide an overview and description of your Source control process.
@@ -255,10 +277,15 @@ The team consolidated a list of the key features of the app in a column on the s
 ##### U. Information System Security Requirements
 Discuss and analyse requirements related to information system security.
 
+The majority of the requirements for information system security are met by the Devise gem. The Devise gem provides a secure and efficient way to authenticate users, confirm their identity and then creates a bunch of methods for the application. These methods ensure that authorisation is carried out effectively through the app. Devise a number of things built into it that utilise encryption to make sure all of it's processes are secure. The final requirement to be considered is a CSRF attack. Fortunately, Rails has built in a method to ensure any HTTP requests that look to affect data, e.g. "Create, Update, Destroy", are filtered using authenticity tokens. This prevents malicious users from sending constructed HTTP requests to our application in order to retrieve, edit or destroy data. Additionally, our search method and forms utilise inbuilt Rails methods to ensure that sql injection is not possible.
+
 ##### V. Data Protection
 Discuss methods you will use to protect information and data.
 
-Our app does not store any confidential user information like addresses, phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their Last name and Email. this information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe.
+Our app does not store any confidential user information like addresses, phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their Last name and Email. this information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
 
 #### W. Legal Obligations with User Data
 Research what your legal obligations are in relation to handling user data.
+
+Broadly speaking, an organisation is responsible for ensure the privacy and security of user information that they receive. This specifically relates to information that is considered private like personal details. This requirement is set out by the Privacy Act of 1988 which can be found on a website maintained by the Office of the Australian Information Commissioner. Chapter three of the Act looks specifically at solicited personal information. This is primarily what we are dealing with as the application in it's current form does not actively track any data it has not openly requested from the user. Within this data, we are expected to distinguish what information could be considered 'sensitive'. It is also important to ensure that we are only soliciting this information where it is reasonable expected that we need it for the functionality of the application. The website also contains a summarised guide for startups looking to comply with the Privacy Act. [OAIC Privacy Act guide for startups](https://www.oaic.gov.au/agencies-and-organisations/business-resources/privacy-business-resource-18#start-ups-and-the-privacy-act).
+It recommends the Privacy by Design approach. Essentially, it suggests that the best way to ensure ongoing regulatory compliance with the Privacy Act is to consider, systematically, what information is being collected, can that information be considered private or sensitive, and is that information securely stored. It provides a number of tools to achieve that and a number of other resources for more specific situations like health records etc.
