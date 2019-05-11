@@ -70,7 +70,7 @@ After this, based on the ERD and plans, the models and databases along with thei
 
 #### B. User stories
 
-1. As Sylvia, I just moved to Sydney and want to go scuba diving with somebody so that I can meet someone new while having      fun.
+1. As Sylvia, I just moved to Sydney and want to go scuba diving with somebody so that I can meet someone new while having fun.
 2. As John, I want a partner to regularly run with in the morning so that I can be accountable to someone and effectively build a healthy habit.
 3. As Daniel I want to try hiking so that I can shake up my usual routine and try something new with other people who know the ropes and can give me guidance.
 4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
@@ -81,9 +81,11 @@ Early in on the project we developed a core user flow that we were aiming to rep
 ![User Flow Diagram](/docs/User_Flow_Diagram.png)
 
 #### D. Wireframes
-The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photo of the low fidelity framing below.
+The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photos of the low fidelity framing below.
 
-![Wireframe 1](/docs/Wireframe_1.png)
+![Wireframe 1](/docs/P_Wireframe1.jpg)
+
+![Wireframe 2](/docs/P_Wireframe2.jpg)
 
 The next stage of wireframing was carried out using balsamiq. In stepping up the fidelity, we added a few additional views and ensured we had a mobile and desktop wireframe for each view. These can be seen below.
 
