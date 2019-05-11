@@ -8,7 +8,18 @@
 
 cities_arr = ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Hobart', 'Adelaide']
 cities_arr.each {|city| City.create(name: city)}
-category = Category.create(name: "Sport")
+category = Category.new(name: "Outdoor")
+category.save
+o_hobbies_arr = ["Surfing", "Hiking", "Scuba Diving", "Running", "Bouldering", "Rock Climbing", "Mountain Biking", "Swimming", "Fishing", "Sailing", "Canyoning", "Orienteering", "Archery", "Tennis", "Acrobatics"]
+o_hobbies_arr.each {|hobby| Category.first.hobbies.create(name: hobby)}
+category = Category.new(name: "Creative")
+category.save
+c_hobbies_arr = ["Painting", "Quilting", 'Cross-stitch', "Knitting", "Origami", "Pottery", "Scrapbooking", "Cheese Making", "Candle Making", "Writing"]
+c_hobbies_arr.each {|hobby| Category.find(2).hobbies.create(name: hobby)}
+category = Category.new(name: "Indoor")
+category.save
+i_hobbies_arr = ["Board Games", "Video Games", "Dungeons & Dragons", "Beatboxing", "Improv", "Stand Up", "Book Club", "Story Telling", "Colouring", "Movies"]
+i_hobbies_arr.each {|hobby| Category.find(3).hobbies.create(name: hobby)}
 
 i = 1
 while i < 6
@@ -18,10 +29,8 @@ while i < 6
     )
     user.paid = true
     user.save
-    Profile.create(first_name: "ben", last_name: "crow", gender: "male", age_bracket: "18-25", description: "a cool guy", user_id: i, city_id: i)
+    Profile.create(first_name: "ben", last_name: "crow#{i}", gender: "male", age_bracket: "18-25", description: "a cool guy", user_id: i, city_id: i)
     puts "#{i} user and profile created"
-    Category.first.hobbies.create(name: Faker::Team.sport)
-    puts "created #{i} hobbies"
     i += 1
 end
 
