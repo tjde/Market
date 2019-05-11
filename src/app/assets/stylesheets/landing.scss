@@ -7,16 +7,23 @@
     display: flex;
 }
 
-#form {
+#searchform {
     background: rgba(255, 255, 255, 0.438);
 }
 
 #background {
     background: rgba(255, 255, 255, 0.301) url(Landing.jpg) no-repeat center;
     background-size: cover;
-    height: 60vh;
+    height: 80vh;
     width: 80vw;
 }
+
+#city_ {
+    font-size: x-large;
+    color: gray;
+    border-radius: 5px;
+}
+
 .header {
     position: relative;
 }
