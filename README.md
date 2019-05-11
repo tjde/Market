@@ -83,7 +83,8 @@ Early in on the project we developed a core user flow that we were aiming to rep
 #### D. Wireframes
 The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photo of the low fidelity framing below.
 
-![Wireframe 1](/docs/Wireframe_1.png)
+![Paper Wireframe 1](/docs/P_Wireframe1.jpg)
+![Paper Wireframe 2](/docs/P_Wireframe2.jpg)
 
 The next stage of wireframing was carried out using balsamiq. In stepping up the fidelity, we added a few additional views and ensured we had a mobile and desktop wireframe for each view. These can be seen below.
 
@@ -282,7 +283,7 @@ The majority of the requirements for information system security are met by the 
 ##### V. Data Protection
 Discuss methods you will use to protect information and data.
 
-Our app does not store any confidential user information like addresses, phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their Last name and Email. this information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
+Our app does not store any confidential user information like addresses and phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their last name and email. This information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
 
 #### W. Legal Obligations with User Data
 Research what your legal obligations are in relation to handling user data.
