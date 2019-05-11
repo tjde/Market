@@ -70,7 +70,7 @@ After this, based on the ERD and plans, the models and databases along with thei
 
 #### B. User stories
 
-1. As Sylvia, I just moved to Sydney and want to go scuba diving with somebody so that I can meet someone new while having      fun.
+1. As Sylvia, I just moved to Sydney and want to go scuba diving with somebody so that I can meet someone new while having fun.
 2. As John, I want a partner to regularly run with in the morning so that I can be accountable to someone and effectively build a healthy habit.
 3. As Daniel I want to try hiking so that I can shake up my usual routine and try something new with other people who know the ropes and can give me guidance.
 4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
@@ -81,10 +81,11 @@ Early in on the project we developed a core user flow that we were aiming to rep
 ![User Flow Diagram](/docs/User_Flow_Diagram.png)
 
 #### D. Wireframes
-The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photo of the low fidelity framing below.
+The first stage of our wireframes were completed on butchers paper. The general concept can be seen in the photos of the low fidelity framing below.
 
-![Paper Wireframe 1](/docs/P_Wireframe1.jpg)
-![Paper Wireframe 2](/docs/P_Wireframe2.jpg)
+![Wireframe 1](/docs/P_Wireframe1.png)
+
+![Wireframe 2](/docs/P_Wireframe2.png)
 
 The next stage of wireframing was carried out using balsamiq. In stepping up the fidelity, we added a few additional views and ensured we had a mobile and desktop wireframe for each view. These can be seen below.
 
@@ -283,10 +284,10 @@ The majority of the requirements for information system security are met by the 
 ##### V. Data Protection
 Discuss methods you will use to protect information and data.
 
-Our app does not store any confidential user information like addresses and phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their last name and email. This information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
+Our app does not store any confidential user information like addresses, phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their Last name and Email. this information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
 
 #### W. Legal Obligations with User Data
 Research what your legal obligations are in relation to handling user data.
 
 Broadly speaking, an organisation is responsible for ensure the privacy and security of user information that they receive. This specifically relates to information that is considered private like personal details. This requirement is set out by the Privacy Act of 1988 which can be found on a website maintained by the Office of the Australian Information Commissioner. Chapter three of the Act looks specifically at solicited personal information. This is primarily what we are dealing with as the application in it's current form does not actively track any data it has not openly requested from the user. Within this data, we are expected to distinguish what information could be considered 'sensitive'. It is also important to ensure that we are only soliciting this information where it is reasonable expected that we need it for the functionality of the application. The website also contains a summarised guide for startups looking to comply with the Privacy Act. [OAIC Privacy Act guide for startups](https://www.oaic.gov.au/agencies-and-organisations/business-resources/privacy-business-resource-18#start-ups-and-the-privacy-act).
-It recommends the Privacy by Design approach. Essentially, it suggests that the best way to ensure ongoing regulatory compliance with the Privacy Act is to consider, systematically, what information is being collected, can that information be considered private or sensitive, and is that information securely stored. It provides a number of tools to achieve that and a number of other resources for more specific situations like health records etc.
+It recommends the Privacy by Design approach. Essentially, it suggests that the best way to ensure ongoing regulatory compliance with the Privacy Act is to consider systematically: what information is being collected, can that information be considered private or sensitive, and is that information securely stored. It provides a number of tools to achieve that and a number of other resources for more specific situations like health records etc.
