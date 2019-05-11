@@ -1,76 +1,67 @@
 <div class="d-flex justify-content-center mb-4">
-    <div class="text-center">
-
-        <p id="notice"><%= notice %></p>
-
-        <div class="card" style="width: 25rem;">
-          <%= image_tag @profile.picture, class:"card-img-top", alt:"profile picture" if @profile.picture.attached?  %>
-        
-        <p class="card-text">
-          <strong>First name:</strong>
-          <%= @profile.first_name %>
-        </p>
-        
-        <% if current_user.profile == @profile %>
-        <p class="card-text">
-          <strong>Last name:</strong>
-          <%= @profile.last_name %>
-        </p>
-
-        <p class="card-text">
-          <strong>Email:</strong>
-          <%= @profile.user.email %>
-        </p>
-        <% end %>
-
-        <p class="card-text">
-          <strong>Gender:</strong>
-          <%= @profile.gender %>
-        </p>
-
-        <p class="card-text">
-          <strong>Age bracket:</strong>
-          <%= @profile.age_bracket %>
-        </p>
-
-        <p class="card-text">
-          <strong>City:</strong>
-          <%= City.find(@profile.city_id).name %>
-        </p>
-
-        <p class="card-text">
-          <strong>Favorite hobby: </strong>
-          <% @profile.hobbies.each do |hobby| %>
-            <%= hobby.name %>
-          <% end %>
-        </p>
-
-        <p class="card-text">
-          <strong>Interested in: </strong>
-          <% @profile.hobby_interests.each do |interest| %>
-            <%= interest.name %>
-          <% end %>
-        </p>
-
-        <p class="card-text">
-          <strong>Description:</strong>
-          <%= @profile.description %>
-        </p>
-<<<<<<< HEAD
-        <p>
+  <div class="">
+    <p id="notice" class="text-center"><%= notice %></p>
+      <div class="card text-center" style="width: 25rem;">
+        <%= image_tag @profile.picture, class:"card-img-top", alt:"profile picture" if @profile.picture.attached?  %>
+        <div class="mb-3 mt-3">
+          <p class="card-text">
+            <strong>First name:</strong>
+            <%= @profile.first_name %>
+          </p>
+          
           <% if current_user.profile == @profile %>
-            <%= link_to 'Edit', edit_profile_path(@profile) %> |
+          <p class="card-text">
+            <strong>Last name:</strong>
+            <%= @profile.last_name %>
+          </p>
+
+          <p class="card-text">
+            <strong>Email:</strong>
+            <%= @profile.user.email %>
+          </p>
           <% end %>
-          <%= link_to 'Back', profiles_path %>
-=======
-        <p class="card-text">
-        <% if current_user.profile == @profile %>
-          <%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-info" %>
-        <% end %>
-        <%= link_to 'Back', profiles_path, class:"btn btn-info" %>
->>>>>>> e1b1e0b8c97354586d29094fac7363543003daeb
-        </p>
-      </div>
+
+          <p class="card-text">
+            <strong>Gender:</strong>
+            <%= @profile.gender %>
+          </p>
+
+          <p class="card-text">
+            <strong>Age bracket:</strong>
+            <%= @profile.age_bracket %>
+          </p>
+
+          <p class="card-text">
+            <strong>City:</strong>
+            <%= City.find(@profile.city_id).name %>
+          </p>
+
+          <p class="card-text">
+            <strong>Favorite hobby: </strong>
+            <% @profile.hobbies.each do |hobby| %>
+              <%= hobby.name %>
+            <% end %>
+          </p>
+
+          <p class="card-text">
+            <strong>Interested in: </strong>
+            <% @profile.hobby_interests.each do |interest| %>
+              <%= interest.name %>
+            <% end %>
+          </p>
+
+          <p class="card-text">
+            <strong>Description:</strong>
+            <%= @profile.description %>
+          </p>
+
+          <p class="card-text">
+          <% if current_user.profile == @profile %>
+            <%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-info" %>
+          <% end %>
+          <%= link_to 'Back', profiles_path, class:"btn btn-info" %>
+          </p>
+        </div>
     </div>
   </div>
 </div>

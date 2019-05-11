@@ -1,8 +1,7 @@
 <%= form_with(model: profile, local: true) do |form| %>
   <% if profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
+      <%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:
       <ul>
       <% profile.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,57 +10,53 @@
     </div>
   <% end %>
 
-<div class="container">
-      <div class="field">
-          <%= form.label :first_name, "*First Name" %>
-          <%= form.text_field :first_name, required: true %>
-      </div>
-      
+  <div class="form-group field">
+      <%= form.label :first_name, "*First Name" %>
+      <%= form.text_field :first_name, required: true, class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :gender, "*Gender" %>
-        <%= form.select :gender, options_for_select([['male'], ['female'], ['other']]), required: true %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :gender, "*Gender" %>
+    <%= form.select :gender, options_for_select([['male'], ['female'], ['other']]), required: true, class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :age_bracket, "*Age" %>
-        <%= form.select :age_bracket, options_for_select([['18-25'], ['26-33'], ['34+']]), required: true %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :age_bracket, "*Age" %>
+    <%= form.select :age_bracket, options_for_select([['18-25'], ['26-33'], ['34+']]), required: true, class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :city_id, "*City" %>
-        <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true, prompt: "City..." %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :city_id, "*City" %>
+    <%= form.select :city_id, options_from_collection_for_select(City.all, :id, :name), required: true, prompt: "City...", class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :hobbies %>
-        <%= select_tag :hobbies, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "Your favorite hobby:" %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :hobbies %>
+    <%= select_tag :hobbies, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "Your favorite hobby:", class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :interests %>
-        <%= select_tag :interests, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "A hobby you want to try:" %>
-      </div>  
+  <div class="form-group field">
+    <%= form.label :interests %>
+    <%= select_tag :interests, options_from_collection_for_select(Hobby.all, "id", "name"), prompt: "A hobby you want to try:", class: "form-control" %>
+  </div>  
 
-      <div class="field">
-        <%= form.label :description, "*About Me" %>
-        <%= form.text_area :description, required: true, placeholder: "Tell us more about yourself." %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :description, "*About Me" %>
+    <%= form.text_area :description, required: true, placeholder: "Tell us more about yourself.", class: "form-control" %>
+  </div>
 
-      <div class="field">
-        <%= form.label :picture %>
-        <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
-      </div>
+  <div class="form-group field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, required: true, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
+  </div>
 
-      <div class="container">
-      <%= form.submit %> 
-      </div>
-    
-    <% end %>
-
+  <div class="form-group actions">
+  <%= form.submit %> 
+  </div>
+  <% end %>
 </div>

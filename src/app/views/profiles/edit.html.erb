@@ -1,13 +1,16 @@
-<div class="container">
-    <div class="text-center">
-        <div class="card">
+<div class="container d-flex justify-content-center mb-4">
+    <div class="">
+        <div class="card" style="width: 40rem;">
             <div class="card-body">
-                <h1 class="card-title">Editing Profile</h1>
+                <h1 class="card-title text-center">Editing Profile</h1>
                     <%= render 'form', profile: @profile %>
-
-                    <%= link_to 'Show', @profile %> |
-                    <%= link_to 'Back', profiles_path %>
+                    <div class="form-group actions">
+                        <%= link_to 'Show', @profile, class:"btn btn-info" %> 
+                        <%= link_to 'Back', profiles_path, class:"btn btn-info" %>
+                    </div>
             </div>
         </div>
     </div>
 </div>
+
+
