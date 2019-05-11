@@ -22,7 +22,7 @@ i_hobbies_arr = ["Board Games", "Video Games", "Dungeons & Dragons", "Beatboxing
 i_hobbies_arr.each {|hobby| Category.find(3).hobbies.create(name: hobby)}
 
 i = 1
-while i < 6
+while i < 3
     user = User.create(
         email: "ben+#{i}@test.com",
         password: "bencrow"
@@ -33,4 +33,17 @@ while i < 6
     puts "#{i} user and profile created"
     i += 1
 end
+
+i = 1
+while i < 9
+User.first.profile.listings.create(hobby_id: i, description: "Fun times doing #{Hobby.find(i).name}", location: "TBD", date: "2019-10-15", equipment: "yes", capacity: i, city_id: 1)
+i += 1
+end
+
+i = 1
+while i < 9
+User.find(2).profile.listings.create(hobby_id: i, description: "Fun times doing #{Hobby.find(i).name}", location: "TBD", date: "2019-10-15", equipment: "yes", capacity: i, city_id: 2)
+i += 1
+end
+
 
