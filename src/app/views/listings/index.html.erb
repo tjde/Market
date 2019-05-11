@@ -1,34 +1,29 @@
 
 <p id="notice"><%= notice %></p>
-<div class="d-flex justify-content-center">
-
+<div class="d-flex justify-content-center mb-2">
   <%= form_tag(listings_path, method: :get) do %>
     <%= text_field_tag(:search, params[:search], placeholder: 'Search by hobby...') %>
     <%= collection_select(:city, params[:id], City.all, :id, :name, prompt: "Location...") %>
-    <%= submit_tag ("Search") %>
+    <%= submit_tag ("Search"), class: "btn btn-info" %>
   <% end %>
-
-
-
-
-
 </div>
 
-<h1>Listings</h1>
-<div class="container">
-<div class="row">
-  <% @listings.each do |listing| %>
-  <% if listing.profile.user != current_user %>
-  <%= link_to(listing) do %>
-  <div class="card mb-3 mr-3 col-3 col-md-1" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
+<div class="container-fluid">
+  <div class="container">
+    <h2 class="text-center">Listings</h2>
+  <div class="row">
+    <% @listings.each do |listing| %>
+    <% if listing.profile.user != current_user %>
+    <%= link_to(listing) do %>
+  <div class="card mb-3 mr-3 col-3 col-md-1 text-dark" style="max-width: 540px;">
+    <div class="row no-gutters">
+     <div class="col-md-4">
       <%= image_tag listing.profile.picture, class:"card-img mt-5 ml-2", alt:"profile picture" if listing.profile.picture.attached? %>
       <h4 class="text-center mt-4">Hi Im <%= listing.profile.first_name %>!</h4>
-    </div>
+      </div>
     <div class="col-md-8">
       <div class="card-body ml-3">
-        <h5 class="card-title" > <%= listing.hobby.name.capitalize %></h5>
+        <h5 class="card-title font-weight-bold"> <%= listing.hobby.name.capitalize %></h5>
         <p class="card-text">Activity Date: <%= listing.date.strftime("%A, %b %d") %> </p>
         <p class="card-text">Activity Location: <%= listing.city.name %></p>
         <p class="card-text">People Attending: 
@@ -43,7 +38,7 @@
             <% remaining = "there are #{spaces_left} spaces remaining" %>
           <% end %>
           <% if spaces_taken == 0 %>
-            <span>No one has joined this listing yet. There are <%= listing.capacity %> spaces</span>
+            <span> No one has joined this listing yet. There are <%= listing.capacity %> spaces</span>
           <% elsif spaces_taken == 1 %>
             <span><%= spaces_taken %> person is already attending | </span>
             <span><%= remaining %></span>
@@ -54,7 +49,7 @@
         </p>
       </div>
     </div>
-</div>
+  </div>
 </div>
 
 <% end %>
