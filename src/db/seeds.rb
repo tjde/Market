@@ -46,4 +46,3 @@ User.find(2).profile.listings.create(hobby_id: i, description: "Fun times doing 
 i += 1
 end
 
-
