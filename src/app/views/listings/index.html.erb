@@ -15,7 +15,7 @@
     <% @listings.each do |listing| %>
     <% if listing.profile.user != current_user %>
     <%= link_to(listing) do %>
-  <div class="card mb-3 mr-3 col-3 col-md-1 text-dark" style="max-width: 540px;">
+  <div class="card mb-3 mr-3 col-2 col-md-1 text-dark">
     <div class="row no-gutters">
      <div class="col-md-4">
       <%= image_tag listing.profile.picture, class:"card-img mt-5 ml-2", alt:"profile picture" if listing.profile.picture.attached? %>
