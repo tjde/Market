@@ -3,12 +3,12 @@
 <div class="card mb-3" style="max-width: 700px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <%= image_tag @listing.profile.picture, class:"card-img img-thumbnail mt-5 ml-2", alt:"profile picture" if @listing.profile.picture.attached? %>
-      <h4 class="text-center mt-4">Hi Im <%= @listing.profile.first_name %>!</h4>
+      <%= image_tag @listing.profile.picture, class:"card-img img-thumbnail mt-4 ml-2", alt:"profile picture" if @listing.profile.picture.attached? %>
+      <h4 class="text-center mt-2 mb-2">Hi, I'm <%= @listing.profile.first_name %>!</h4>
     </div>
     <div class="col-md-8">
       <div class="card-body ml-3">
-        <h5 class="card-title" > <%= @listing.hobby.name.capitalize %></h5>
+        <h5 class="card-title font-weight-bold" > <%= @listing.hobby.name.capitalize %></h5>
         <p class="card-text">Activity Date: <%= @listing.date.strftime("%A, %b %d") %> </p>
         <p class="card-text">Activity Location: <%= @listing.city.name %></p>
         <p class="card-text">People Attending: 
@@ -50,8 +50,8 @@
               <%= link_to 'Attend', attend_path, class:"btn btn-info", method: :post unless current_user.profile == @listing.profile or spaces_left == 0 %>
             <% end %>
             <% if flash[:notice] %>
-              <div class="notice"><%= flash[:notice] %></div>
-            <% end %>
+              <div class="notice text-primary"><%= flash[:notice] %></div>
+            <% end %> 
         </p>
       </div>
     </div>
