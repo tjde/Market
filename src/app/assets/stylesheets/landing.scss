@@ -12,7 +12,10 @@
 }
 
 #background {
-    background: rgba(255, 255, 255, 0.301) url(Landing.jpg) no-repeat center;
+    background-color: rgba(255, 255, 255, 0.301);
+    background-image: url(image-path("Landing.jpg"));
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     height: 80vh;
     width: 80vw;
