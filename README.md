@@ -1,12 +1,12 @@
 ### I. WebApp Link: http://hobbybuddies.herokuapp.com/ 
 
-### II. Github Repos: BeCrusty    tjde https://github.com/tjde/Market
+### II. Github Repos: BeCrusty https://github.com/BeCrusty/Market  tjde https://github.com/tjde/Market
 
 ### III. Project Description
 
 #### A. Problem definition / purpose
 
-The purpose of the app is to provide a means for users to find other people to engage in hobbies with together. Users can create listings centred on specific hobbies which include a brief description, date, time, location and number of people invited to join. Other users of the site can then search listings put up by others based on a specific hobby and Australian major city location. It aims to address barriers that prevent people from participating in their preferred hobby and picking up new hobby. Namely, barriers that exist in today's society that limit people's connections with others in the community and limit their ability to participate.
+The purpose of the app is to provide a means for users to find other people to engage in hobbies with together. Users can create listings centred on specific hobbies which include a brief description, date, time, location and number of people invited to join. Other users of the site can then search listings put up by others based on a specific hobby and Australian major city location. It aims to address barriers that limit people's ability to either participate in a preferred hobby or prevents them from picking up new hobby.
 
 #### B. Functionality / features
 
@@ -20,9 +20,9 @@ The features of the app include:
 
 - Stripe checkout payment page to protect and authenticate users' credit card information
 
-- Users  are able to create listings that comes up as summarised cards in searches
+- Users are able to create listings that comes up as summarised cards in searches
 
-- Users able to upload profile pictures to an AWS Server (S3)
+- Users are able to upload profile pictures to an AWS Server (S3)
 
 
 #### C. Screenshots
@@ -31,13 +31,11 @@ The features of the app include:
 #### D. Tech stack
 
 - Html 5 and CSS3
-- Javascript
 - Boostrap Framework
 - Devise 
 - Stripe 
 - AWS S3 Server
 - Ruby on Rails
-- Javascript
 - Heroku
 
 #### E.Instructions on how to setup, configure and use your App
@@ -57,7 +55,6 @@ To set up and access the app in your own computer, follow the steps below. Pleas
 
 ### IV. Design documentation
 
-
 #### A. Design process
 
 The group started by coming up with a large range of different ideas and writing down those that seemed interesting and achievable. We then considered the potential scope of these selected ideas before narrowing in on the hobby sharing idea. We proceeded to more thoroughly consider how this idea could be executed before moving on to the assignment brief. Our chosen idea is represented in the HobbyBuddies app, and is also the idea we believed had the most potential to be useful, engaging and marketable.
@@ -76,7 +73,7 @@ After this, based on the ERD and plans, the models and databases along with thei
 4. As Amy, I want a regular buddy to go wall climbing with so that I can engage in an activity that I've always enjoyed but haven't been able to do without a partner.
 
 #### C. A workflow diagram of the user journey/s.
-Early in on the project we developed a core user flow that we were aiming to reproduce. This 'Happy Path' relies on a few layers of functionality and can be seen in the userflow diagram.
+Early in on the project we developed a core user flow that we were aiming to reproduce. This 'Happy Path' relies on a few layers of functionality and can be seen in the userflow diagram below.
 
 ![User Flow Diagram](/docs/User_Flow_Diagram.png)
 
@@ -105,9 +102,16 @@ The next stage of wireframing was carried out using balsamiq. In stepping up the
 
 There were a few stages for our ERD. The initial ERD, approved by the Lead Educator, is still accurate in terms of the key data objects that it tracks. The later stages added a couple of tables to track recurring information, e.g. "Cities", and updated the various columns we were using as the project developed slightly. Screenshots of three stages can be seen below and found in docs.
 
+
+First Stage
+
 ![ERD Stage 1](/docs/ERD_1.png)
 
+Second Stage
+
 ![ERD Stage 2](/docs/ERD_2.png)
+
+Final Stage 
 
 ![ERD Stage 3](/docs/ERD_Marketplace_Final.png)
 
@@ -179,7 +183,7 @@ A range of software was utilised, including:
 ##### F. Database
 Identify the database to be used in your App and provide a justification for your choice.
 
-The database used in our app is Postgresql. Firstly, sql is the default database built into rails so no additional software needs to be installed. Second of all, a relational database like posgresql allows for for a way to structure our data to more easily obtain the data we require like user hobbies or cities as our app relies on retrieving data based on the relationships between information in the user profile and the listings they create. 
+The database used in our app is Postgresql. Firstly, sql is the default database built into rails so no additional software needed to be installed. Second of all, a relational database like posgresql allows for a way to structure our data to more easily access and obtain information like user hobbies or cities, as our app relies on retrieving data based on the relationships between information in the user profile and the listings they create. 
 
 
 ##### G. Production Database Setup
@@ -199,7 +203,7 @@ Our app runs on the Ruby on Rails framework which acts as our server side develo
 ##### I. App Abstractions
 Explain the different high-level components (abstractions) in your App.
 
-The Model-View-Controller (MVC) pattern allows for a separation of concerns. This means that each part of the application deals with specific areas of functionality. Thanks to Rails configuration based approach, this is possible with minimal setup.
+The Model-View-Controller (MVC) pattern allows for a separation of concerns. This means that each part of the application deals with specific areas of functionality. Thanks to the Rails configuration based approach, this is possible with minimal setup.
 
 The Model takes care of managing the data of the application and the logic pertaining to the retrieval of that data. The model files are where we establish the associations between different database objects and act as a guide for the Object Relational Mapping built into Rails.
 
@@ -225,9 +229,9 @@ Both of these two-sided marketplaces also track user/profile data, and associate
 ##### L. Database Relations
 Discuss the database relations to be implemented.
 
-As mentioned before in discussing the database setup. The key objects being tracked in our application are listing, profile and user. The most basic of the associations here are between profile and user. A user has one profile and a profile belongs to a user. This ensures that a profile cannot be created without a person being signed in as a user through Devise's authentication process. A profile then has many listings and a listing belongs to a profile. This means that only one profile is identified as owning each listing, and thus being authorised to manage that listing. There are some other minor associations involved in setting up a listing. A hobby has on category, and has many listings. This means that a listing belongs to a hobby. This setup allows us to find listings through categories or hobbies, providing a good search method for the user. A listing and a profile also belong to a city, which is setup as a separate table, allowing for location targeted searching from a prepopulated list of locations.
+As mentioned before in discussing the database setup. The key objects being tracked in our application are listing, profile and user. The most basic of the associations here are between profile and user. A user has one profile and a profile belongs to a user. This ensures that a profile cannot be created without a person being signed in as a user through Devise's authentication process. A profile then has many listings and a listing belongs to a profile. This means that only one profile is identified as owning each listing, and thus being authorised to manage that listing. There are some other minor associations involved in setting up a listing. A hobby has one category, and has many listings. This means that a listing belongs to a hobby. This setup allows us to find listings through categories or hobbies, providing a good search method for the user. A listing and a profile also belong to a city, which is setup as a separate table, allowing for location targeted searching from a prepopulated list of locations.
 
-The remaining assocations are slightly more complex, utilising the has many through assocations. A listing and a profile are both connected to the attendees and favorites tables. This allows for records to be created that identify for each listing, who is attending. For each profile, what are they attending and what have they favorited. Profiles are also connected to hobbies in a similar way, through join tables, that allows the user to indicate hobbies they currently participate in and ones they would like to. This is primarily for future functionality involving suggesting listings to users based on activity and their interests.
+The remaining assocations are slightly more complex, utilising the has many through assocations. A listing and a profile are both connected to the attendees and favorites tables. This allows for records to be created that identify for each listing, who is attending. For each profile, what are they attending and what they have favorited. Profiles are also connected to hobbies in a similar way, through join tables, that allows the user to indicate hobbies they currently participate in and ones they would like to. This is primarily for future functionality involving suggesting listings to users based on activity and their interests.
 
 ##### M. Active Record Associations of the Models
 Describe your project’s models in terms of the relationships (active record associations) they have with each other.
@@ -264,7 +268,7 @@ An initial list of overall tasks based on discussed features and requirements we
 ##### R. Agile Method Implementation
 Discuss how Agile methodology is being implemented in your project.
 
-Our application development process relied heavily on the Agile methodology. The app was segmented carefully into distinct features that were allocated and given a time frame. These large features, e.g. authorization, were further broken down into smaller stages. These short stages were treated as sprints. Pieces of work that could be quickly and easily coded,then quickly and easily tested, adjusted then committed. Thus,these larger features were split into sprints running for a number of days, allocated between the two team members. In order to ensure the efficiency of this process, progress was tracked through Monday.com and each feature marked with it's respective importance and current status. Please see screenshots above under the project timeline section.
+Our application development process relied heavily on the Agile methodology. The app was segmented carefully into distinct features that were allocated and given a time frame. These large features, e.g. authorization, were further broken down into smaller stages. These short stages were treated as sprints. Pieces of work that could be quickly and easily coded,then quickly and easily tested were adjusted then committed. Thus,these larger features were split into sprints running for a number of days, allocated between the two team members. In order to ensure the efficiency of this process, progress was tracked through Monday.com and each feature marked with it's respective importance and current status. Please see screenshots above under the project timeline section.
 
 ##### S. Source Control
 Provide an overview and description of your Source control process.
@@ -279,15 +283,15 @@ The team consolidated a list of the key features of the app in a column on the s
 ##### U. Information System Security Requirements
 Discuss and analyse requirements related to information system security.
 
-The majority of the requirements for information system security are met by the Devise gem. The Devise gem provides a secure and efficient way to authenticate users, confirm their identity and then creates a bunch of methods for the application. These methods ensure that authorisation is carried out effectively through the app. Devise a number of things built into it that utilise encryption to make sure all of it's processes are secure. The final requirement to be considered is a CSRF attack. Fortunately, Rails has built in a method to ensure any HTTP requests that look to affect data, e.g. "Create, Update, Destroy", are filtered using authenticity tokens. This prevents malicious users from sending constructed HTTP requests to our application in order to retrieve, edit or destroy data. Additionally, our search method and forms utilise inbuilt Rails methods to ensure that sql injection is not possible.
+The majority of the requirements for information system security are met by the Devise gem. The Devise gem provides a secure and efficient way to authenticate users, confirm their identity and then creates a bunch of methods for the application. These methods ensure that authorisation is carried out effectively through the app. Devise has a number of things built into it that utilise encryption to make sure all of it's processes are secure. The final requirement to be considered is a CSRF attack. Fortunately, Rails has built in a method to ensure any HTTP requests that look to affect data, e.g. "Create, Update, Destroy", are filtered using authenticity tokens. This prevents malicious users from sending constructed HTTP requests to our application in order to retrieve, edit or destroy data. Additionally, our search method and forms utilise inbuilt Rails methods to ensure that sql injection is not possible.
 
 ##### V. Data Protection
 Discuss methods you will use to protect information and data.
 
-Our app does not store any confidential user information like addresses, phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look in their information. They can only see the profile of the User who created a listing. However only the actual logged in user is able to see their Last name and Email. this information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
+Our app does not store any confidential user information like addresses and phone numbers. Profiles only have a general city location of the users to narrow down the scope of search. Users of the app cannot directly search for other users to look at their information. They can only see the profile of the User who created a listing. Additionally, only the actual logged in user is able to see their own Last name and Email. This information is not available to other users viewing their profile. No payment information is stored. All credit card information and payment details are handled by Stripe. All private data, like user email and password, are handled securely by Stripe. Stripe relies on Warden to secure this information and protect other users from accessing it through sql injection etc.
 
 #### W. Legal Obligations with User Data
 Research what your legal obligations are in relation to handling user data.
 
-Broadly speaking, an organisation is responsible for ensure the privacy and security of user information that they receive. This specifically relates to information that is considered private like personal details. This requirement is set out by the Privacy Act of 1988 which can be found on a website maintained by the Office of the Australian Information Commissioner. Chapter three of the Act looks specifically at solicited personal information. This is primarily what we are dealing with as the application in it's current form does not actively track any data it has not openly requested from the user. Within this data, we are expected to distinguish what information could be considered 'sensitive'. It is also important to ensure that we are only soliciting this information where it is reasonable expected that we need it for the functionality of the application. The website also contains a summarised guide for startups looking to comply with the Privacy Act. [OAIC Privacy Act guide for startups](https://www.oaic.gov.au/agencies-and-organisations/business-resources/privacy-business-resource-18#start-ups-and-the-privacy-act).
+Broadly speaking, an organisation is responsible for ensuring the privacy and security of user information that they receive. This specifically relates to information that is considered private like personal details. This requirement is set out by the Privacy Act of 1988 which can be found on a website maintained by the Office of the Australian Information Commissioner. Chapter three of the Act looks specifically at solicited personal information. This is primarily what we are dealing with as the application in it's current form does not actively track any data it has not openly requested from the user. Within this data, we are expected to distinguish what information could be considered 'sensitive'. It is also important to ensure that we are only soliciting this information where it is reasonable expected that we need it for the functionality of the application. The website also contains a summarised guide for startups looking to comply with the Privacy Act. [OAIC Privacy Act guide for startups](https://www.oaic.gov.au/agencies-and-organisations/business-resources/privacy-business-resource-18#start-ups-and-the-privacy-act).
 It recommends the Privacy by Design approach. Essentially, it suggests that the best way to ensure ongoing regulatory compliance with the Privacy Act is to consider systematically: what information is being collected, can that information be considered private or sensitive, and is that information securely stored. It provides a number of tools to achieve that and a number of other resources for more specific situations like health records etc.
