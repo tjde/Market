@@ -5,8 +5,8 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
-    # redirect_to root_path
+    # @profiles = Profile.all
+    redirect_to root_path
   end
 
   # GET /profiles/1
