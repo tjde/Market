@@ -1,6 +1,11 @@
-### I. WebApp Link: http://hobbybuddies.herokuapp.com/ 
+### I. WebApp Link:
+    
+    http://hobbybuddies.herokuapp.com/ 
 
-### II. Github Repos: BeCrusty https://github.com/BeCrusty/Market  tjde https://github.com/tjde/Market
+### II. Github Repos: 
+
+    BeCrusty https://github.com/BeCrusty/Market     
+    tjde https://github.com/tjde/Market
 
 ### III. Project Description
 
