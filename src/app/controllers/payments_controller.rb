@@ -14,6 +14,7 @@ class PaymentsController < ApplicationController
                 quantity: 1,
             }],
             success_url: 'http://hobbybuddies.herokuapp.com/payments/success',
+            cancel_url: 'http://hobbybuddies.herokuapp.com/cancel'
         )
         @stripe_session_id = stripe_session.id
     end
