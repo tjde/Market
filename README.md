@@ -26,12 +26,50 @@ The features of the app include:
 
 
 #### C. Screenshots
-<!-- To be added on completion -->
+
+Landing Page
+![Landing Page](/docs/Landing_Page.png)
+
+Search Listings Result
+![Search Listings](/docs/Search_Listings.png)
+
+Login Authentication
+![Login Authentication](/docs/Login_Authentication.png)
+
+Sign Up Page
+![Sign Up](/docs/Sign_Up.png)
+
+Payment Page
+![Payment Page](/docs/Stripe_Checkout.png)
+
+New Profile Page
+![New Profile](/docs/New_Profile.png)
+
+Profile Page
+![Profile_Page](/docs/Profile_Page.png)
+
+Edit Profile Page
+![Edit Profile Page](/docs/Edit_Profile.png)
+
+New Listing Page
+![New Listing](/docs/New_Listing.png)
+
+New Listing Created 
+![Listing_Created](/docs/Listing_Created.png)
+
+Edit Listing Page
+![Edit Listing](/docs/Edit_Listing.png)
+
+My Listings Page
+![My Listings](/docs/My_Listings.png)
+
+
 
 #### D. Tech stack
 
 - Html 5 and CSS3
 - Boostrap Framework
+- Javascript
 - Devise 
 - Stripe 
 - AWS S3 Server
@@ -278,7 +316,7 @@ The team structured our git repository so that the Master branch is only ever up
 ##### T. Testing Process
 Provide an overview and description of your Testing process.
 
-The team consolidated a list of the key features of the app in a column on the spreadsheet. We then compiled several test cases for each feature that we believe should work or not work in a separate sheet, marking each test with it's feature id and unique test id. We then identified the outcome that we wanted for that particular test case, i.e. what functionality we were expecting. We then worked through each test case, listing down the results and comparing them to what was expected. A few major issues were identified, fixed in the code and that test case run through again to ensure proper resolution. For more information, a full copy of the testing spreadsheet is attached above.
+The team consolidated a list of the key features of the app in a column on the spreadsheet. We then compiled several test cases for each feature that we believe should work or not work in a separate sheet, marking each test with it's feature id and unique test id. We then identified the outcome that we wanted for that particular test case, i.e. what functionality we were expecting. We then worked through each test case, listing down the results and comparing them to what was expected. A few major issues were identified, fixed in the code and that test case run through again to ensure proper resolution. For more information, a full copy of the testing spreadsheet can be found in the /docs folder.
 
 ##### U. Information System Security Requirements
 Discuss and analyse requirements related to information system security.
