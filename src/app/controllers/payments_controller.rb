@@ -13,8 +13,8 @@ class PaymentsController < ApplicationController
                 currency: 'aud',
                 quantity: 1,
             }],
-            success_url: 'http://hobbybuddies.herokuapp.com/payments/success',
-            cancel_url: 'http://hobbybuddies.herokuapp.com/cancel'
+            success_url: 'http://hobbybuddies.herokuapp.com/payments',
+            cancel_url: 'http://hobbybuddies.herokuapp.com/payments'
         )
         @stripe_session_id = stripe_session.id
     end
